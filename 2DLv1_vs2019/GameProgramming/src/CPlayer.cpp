@@ -5,6 +5,8 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
+int Jump = 0;
+int jumpCount = 20;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
@@ -48,19 +50,26 @@ void CPlayer::Update() {
 			y = -300 + h;
 		}
 	}
+
+	if (CKey::Once(' ')) {
+		Jump = true;
+	}
+
+	if (Jump == true) {
+		if (jumpCount >= -20) {
+			jumpCount--;
+			y += jumpCount;
+		}
+		else if(jumpCount == -20) {
+			jumpCount = 20;
+			Jump = false;
+		}
+	}
 	//攻撃で使う予定 ''内はとりあえずJ
 	if (CKey::Once('J')) {
 
 	}
 	
-	if (CKey::Once(' ')) {
-		if (mEnabled) {
-			int Jh = 9;
-			for (Jumph = 1; Jumph < 0; Jh--) {
-				Jumph += Jh;
-			}
-		}
-	}
 	//37
 	//スペースキーで弾発射
 	//0より大きいとき1減算する
