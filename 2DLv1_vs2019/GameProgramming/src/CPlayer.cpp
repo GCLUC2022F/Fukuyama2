@@ -48,6 +48,11 @@ void CPlayer::Update() {
 			y = -300 + h;
 		}
 	}
+	//攻撃で使う予定 ''内はとりあえずJ
+	if (CKey::Once('J')) {
+
+	}
+	
 	//37
 	//スペースキーで弾発射
 	//0より大きいとき1減算する
@@ -73,7 +78,7 @@ void CPlayer::Update() {
 }
 
 void CPlayer::Render() {
-	CRectangle::Render(Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
+	CRectangle::Render();//Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
 }
 
 //36
