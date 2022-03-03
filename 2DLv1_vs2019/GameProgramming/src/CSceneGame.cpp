@@ -1,5 +1,6 @@
 #include "CSceneGame.h"
 #include <stdio.h>
+extern CTaskManager TaskManager;
 
 //残り時間（30秒）
 int Time = 30 * 60;
@@ -70,46 +71,8 @@ void CSceneGame::Init() {
 }
 
 void CSceneGame::Update() {
-	/*
-	配列の要素分繰り返す
-	配列名.size()
-	配列の要素数を取得する
-	*/
-	for (int i = 0; i < VectorRect.size(); i++) {
-		/*
-		配列の参照
-		配列名[添え字]
-		通常の配列同様に添え字で要素にアクセスできる
-		*/
-		//更新処理
-		VectorRect[i]->Update();
-	}
-	for (int i = 0; i < VectorRect.size() - 1; i++) {
-		//衝突処理
-		for (int j = i + 1; j < VectorRect.size(); j++) {
-			VectorRect[i]->Collision(VectorRect[i], VectorRect[j]);
-			VectorRect[j]->Collision(VectorRect[j], VectorRect[i]);
-		}
-	}
-
-	//リストから削除する
-	//イテレータの生成
-	std::vector<CRectangle*>::iterator itr;
-	//イテレータを先頭
-	itr = VectorRect.begin();
-	//最後まで繰り返し
-	while (itr != VectorRect.end()) {
-		if ((*itr)->mEnabled) {
-			//次へ
-			itr++;
-		}
-		else {
-			//falseのインスタンスを削除
-			delete *itr;
-			//リストからも削除
-			itr = VectorRect.erase(itr);
-		}
-	}
+	TaskManager.Update();
+	TaskManager.Render();
 
 	for (int i = 0; i < VectorRect.size(); i++) {
 		//描画処理
@@ -151,11 +114,5 @@ CScene::EScene CSceneGame::GetNextScene() {
 }
 //デストラクタ
 CSceneGame::~CSceneGame() {
-	//全てのインスタンスを削除します
-	for (int i = 0; i < VectorRect.size(); i++) {
-		//インスタンスの削除
-		delete VectorRect[i];
-	}
-	//可変長配列のクリア
-	VectorRect.clear();
+	TaskManager.Delete();
 }
