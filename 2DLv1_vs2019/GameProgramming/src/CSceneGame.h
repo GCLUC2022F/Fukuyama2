@@ -6,6 +6,7 @@
 #include "CBullet.h"
 #include "CPlayer.h"
 #include "CEnemy.h"
+#include "CTaskManager.h"
 #include "CText.h"
 // テクスチャクラスのインクルード
 #include "CTexture.h"

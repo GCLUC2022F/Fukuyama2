@@ -88,8 +88,5 @@ public:
 	virtual void Collision(CRectangle *i, CRectangle *y) {};
 };
 
-#include <vector>
-//‰Â•Ï’·”z—ñ‚Ì’è‹`
-extern std::vector<CRectangle*> VectorRect;
 
 #endif //#ifndef‚ÌI‚í‚è
