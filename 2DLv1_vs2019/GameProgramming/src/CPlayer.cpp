@@ -53,6 +53,14 @@ void CPlayer::Update() {
 
 	}
 	
+	if (CKey::Once(' ')) {
+		if (mEnabled) {
+			int Jh = 9;
+			for (Jumph = 1; Jumph < 0; Jh--) {
+				Jumph += Jh;
+			}
+		}
+	}
 	//37
 	//スペースキーで弾発射
 	//0より大きいとき1減算する
@@ -61,7 +69,17 @@ void CPlayer::Update() {
 	}
 	//FireContが0で、かつ、スペースキーで弾発射
 	else if( CKey::Once(' ')) {
-		
+		CBullet* Bullet = new CBullet();
+		//発射位置の設定
+		Bullet->x = x;
+		Bullet->y = y;
+		//移動の値を設定
+		Bullet->mFx = mFx * 5;
+		Bullet->mFy = mFy * 5;
+		//有効にする
+		Bullet->mEnabled = true;
+		//プレイヤーの弾を設定
+		Bullet->mTag = CRectangle::EPLAYERBULLET;
 		FireCount = 10;
 	}
 	//37
