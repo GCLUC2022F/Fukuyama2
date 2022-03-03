@@ -9,6 +9,7 @@ public:
 	int mFx, mFy;
 	//37
 	int FireCount;
+	
 	CPlayer();
 	void Update();
 	void Render();

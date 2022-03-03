@@ -48,6 +48,11 @@ void CPlayer::Update() {
 			y = -300 + h;
 		}
 	}
+	//攻撃で使う予定 ''内はとりあえずJ
+	if (CKey::Once('J')) {
+
+	}
+	
 	//37
 	//スペースキーで弾発射
 	//0より大きいとき1減算する
@@ -56,24 +61,14 @@ void CPlayer::Update() {
 	}
 	//FireContが0で、かつ、スペースキーで弾発射
 	else if( CKey::Once(' ')) {
-		CBullet *Bullet = new CBullet();
-		//発射位置の設定
-		Bullet->x = x;
-		Bullet->y = y;
-		//移動の値を設定
-		Bullet->mFx = mFx * 5;
-		Bullet->mFy = mFy * 5;
-		//有効にする
-		Bullet->mEnabled = true;
-		//プレイヤーの弾を設定
-		Bullet->mTag = CRectangle::EPLAYERBULLET;
+		
 		FireCount = 10;
 	}
 	//37
 }
 
 void CPlayer::Render() {
-	CRectangle::Render(Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
+	CRectangle::Render();//Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
 }
 
 //36
