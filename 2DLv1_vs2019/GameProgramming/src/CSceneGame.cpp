@@ -1,7 +1,6 @@
 #include "CSceneGame.h"
+#include "CTaskManager.h"
 #include <stdio.h>
-extern CTaskManager TaskManager;
-
 //残り時間（30秒）
 int Time = 30 * 60;
 int Remain = 3;
@@ -71,13 +70,8 @@ void CSceneGame::Init() {
 }
 
 void CSceneGame::Update() {
-	TaskManager.Update();
-	TaskManager.Render();
-
-	for (int i = 0; i < VectorRect.size(); i++) {
-		//描画処理
-		VectorRect[i]->Render();
-	}
+	CTaskManager::Get()->Update();
+	CTaskManager::Get()->Render();
 
 	CText::DrawChar('S', -350, 250, 16, 16);
 	CText::DrawChar('c', -350 + 32, 250, 16, 16);
@@ -114,5 +108,5 @@ CScene::EScene CSceneGame::GetNextScene() {
 }
 //デストラクタ
 CSceneGame::~CSceneGame() {
-	TaskManager.Delete();
+	CTaskManager::Get()->Delete();
 }

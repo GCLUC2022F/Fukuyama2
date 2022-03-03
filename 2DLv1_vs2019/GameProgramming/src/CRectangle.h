@@ -7,12 +7,13 @@
 
 #include "glut.h"
 #include "CTexture.h"
+#include "CTask.h"
 
 /*
 CRectangleクラス
 四角形に関するクラス
 */
-class CRectangle {
+class CRectangle : public CTask {
 public:
 	//列挙型の定義
 	enum ETag {
