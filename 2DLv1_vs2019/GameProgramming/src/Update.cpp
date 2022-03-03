@@ -18,9 +18,9 @@ CSceneManager SceneManager;
 //最初に一度だけ呼ばれる関数
 void Init() {
 	//
-	Texture.Load("Image.tga");
+	Texture.Load("res\\Image.tga");
 	//文字画像の読み込み
-	CText::mFont.Load("font.tga");
+	CText::mFont.Load("res\\font.tga");
 	//シーンマネージャの初期化
 	SceneManager.Init();
 }
