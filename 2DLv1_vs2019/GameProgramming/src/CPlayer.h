@@ -5,6 +5,7 @@
 
 class CPlayer : public CRectangle {
 public:
+	int Jumph;
 	int mFx, mFy;
 	//37
 	int FireCount;
