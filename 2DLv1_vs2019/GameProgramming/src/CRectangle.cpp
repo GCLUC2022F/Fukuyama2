@@ -2,6 +2,10 @@
 #include "CTaskManager.h"
 //vector型のインクルード
 #include <vector>
+/*
+可変長配列の定義
+std;;vector<配列要素のデータ型> 配列名
+*/
 
 //デフォルトコンストラクタ
 CRectangle::CRectangle()
@@ -16,6 +20,7 @@ CRectangle::CRectangle()
 	値を配列の最後に追加する
 	*/
 	CTaskManager::Get()->Add(this);
+
 }
 
 

@@ -7,6 +7,8 @@ class CTaskManager {
 public:
 	virtual ~CTaskManager();
 
+	CTaskManager();
+
 	static CTaskManager* Get();
 
 	void Add(CTask* addTask);
@@ -19,13 +21,12 @@ public:
 	void Delete();
 
 protected:
-	CTaskManager();
 	CTask mHead;
 	CTask mTail;
 
 private:
 	static CTaskManager* mpInstance;
 };
-
+extern CTaskManager TaskManager;
 
 #endif // !CTASKMANAGER_H
