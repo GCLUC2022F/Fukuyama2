@@ -1,9 +1,8 @@
 #ifndef CENEMY_H
 #define CENEMY_H
-
 #include "CRectangle.h"
 #include "CBullet.h"
-
+#include "CPlayer.h"
 class CEnemy : public CRectangle {
 public:
 	int mFx; //X²•ûŒü‚ÌˆÚ“® -1:¶ 0:ˆÚ“®‚µ‚È‚¢ 1:‰E‚ÖˆÚ“®

@@ -2,9 +2,7 @@
 #include "CTexture.h"
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
-
 //CBullet CEnemy::EBullet[20];
-
 CEnemy::CEnemy()
 : mFx(1.0f), mFy(0.0f), mFireCount(60)
 {
@@ -114,8 +112,13 @@ void CEnemy::Update() {
 		}
 		*/
 	}
-	x += mFx;
-	y += mFy;
+	if (EPLAYER > 0) {
+		x--;
+		y--;
+	}
+	
+	
+	
 }
 /*
 親のCollisionをオーバーライドする
