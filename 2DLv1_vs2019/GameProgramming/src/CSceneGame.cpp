@@ -1,5 +1,6 @@
 #include "CSceneGame.h"
 #include "CTaskManager.h"
+#include "CCollisionManager.h"
 #include "CPlayer.h"
 #include <stdio.h>
 
@@ -24,7 +25,7 @@ void CSceneGame::Init() {
 	{
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 1 },
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -74,6 +75,7 @@ void CSceneGame::Init() {
 void CSceneGame::Update() {
 	CTaskManager::Get()->Update();
 	CTaskManager::Get()->Render();
+	CCollisionManager::Get()->Collision();
 
 	CText::DrawChar('S', -350, 250, 16, 16);
 	CText::DrawChar('c', -350 + 32, 250, 16, 16);

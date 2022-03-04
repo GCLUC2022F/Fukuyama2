@@ -43,6 +43,8 @@ void CRectangle::Render() {
 	DrawRectangle(x + w, y + h, x - w, y + h, x - w, y - h, x + w, y - h);
 }
 
+
+
 bool CRectangle::Collision(const CRectangle &r) {
 	//X軸の重なりを判定
 	//中心のX座標の距離を求める
@@ -124,3 +126,10 @@ bool CRectangle::Collision(CRectangle *pr, int *px, int *py) {
 	//X軸、Y軸ともに重なっているので、trueを返す
 	return true;
 }
+
+
+
+
+
+
+
