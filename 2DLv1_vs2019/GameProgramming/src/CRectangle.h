@@ -8,7 +8,6 @@
 #include "glut.h"
 #include "CTexture.h"
 #include "CTask.h"
-
 /*
 CRectangleクラス
 四角形に関するクラス
@@ -26,6 +25,8 @@ public:
 	ETag mTag;	//列挙型の変数
 	//デフォルトコンストラクタ
 	CRectangle();
+
+	CRectangle* mpParent;
 
 	bool mEnabled;	// true : Update Collision Render
 
@@ -88,6 +89,7 @@ public:
 
 	//36
 	virtual void Collision(CRectangle *i, CRectangle *y) {};
+
 };
 
 
