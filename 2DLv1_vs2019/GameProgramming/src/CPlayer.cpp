@@ -5,7 +5,7 @@
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 bool Jump = false;
-int jumpCount = INIT_JUMPCOUNT;
+int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
 
 CPlayer::CPlayer()
@@ -54,17 +54,17 @@ void CPlayer::Update() {
 
 	if (CKey::Once(' ')) {
 		if (Jump == false) {
-			jumpCount = INIT_JUMPCOUNT;
+			Jumpcount = INIT_JUMPCOUNT;
 			Jump = true;
 		}	
 	}
 
 	if (Jump == true) {
 		h = 60;
-		if (jumpCount >= 0) {
-			Jumph += jumpCount - (INIT_JUMPCOUNT / 2);
-			jumpCount -= 1;
-			if (jumpCount < 0) {
+		if (Jumpcount >= 0) {
+			Jumph += Jumpcount - (INIT_JUMPCOUNT / 2);
+			Jumpcount -= 1;
+			if (Jumpcount < 0) {
 				h = INIT_PLAYERH;
 				Jump = false;
 			}
