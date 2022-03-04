@@ -1,7 +1,7 @@
 #include "CPlayer.h"
 #include "CKey.h"
 #include "CBullet.h"
-#define INIT_JUMPCOUNT 30
+
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 bool Jump = false;
@@ -48,21 +48,24 @@ void CPlayer::Update() {
 		mFx = 0;
 		mFy = -1;
 		if (my - h < -300) {
-			y = -300 + h;
+			my = -300 + h;
 		}
 	}
 
 	if (CKey::Once(' ')) {
-		jumpCount = INIT_JUMPCOUNT;
-		Jump = true;
-		
+		if (Jump == false) {
+			jumpCount = INIT_JUMPCOUNT;
+			Jump = true;
+		}	
 	}
 
 	if (Jump == true) {
+		h = 60;
 		if (jumpCount >= 0) {
 			Jumph += jumpCount - (INIT_JUMPCOUNT / 2);
 			jumpCount -= 1;
 			if (jumpCount < 0) {
+				h = INIT_PLAYERH;
 				Jump = false;
 			}
 		}

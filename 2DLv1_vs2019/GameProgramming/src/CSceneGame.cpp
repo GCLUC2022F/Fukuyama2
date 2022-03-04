@@ -1,5 +1,6 @@
 #include "CSceneGame.h"
 #include "CTaskManager.h"
+#include "CPlayer.h"
 #include <stdio.h>
 
 //Žc‚èŽžŠÔi30•bj
@@ -15,8 +16,8 @@ void CSceneGame::Init() {
 	CPlayer *Player = new CPlayer();
 	Player->x = 150;
 	Player->my = 150;
-	Player->w = 40;
-	Player->h = 100;
+	Player->w = INIT_PLAYERW;
+	Player->h = INIT_PLAYERH;
 	Player->mEnabled = true;
 //37
 	int map[6][8] =
