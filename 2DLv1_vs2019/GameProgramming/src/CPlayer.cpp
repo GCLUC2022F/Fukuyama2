@@ -1,12 +1,12 @@
 #include "CPlayer.h"
 #include "CKey.h"
-//37
 #include "CBullet.h"
-
+#define INIT_JUMPCOUNT 30
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
-int Jump = 0;
-int jumpCount = 20;
+bool Jump = false;
+int jumpCount = INIT_JUMPCOUNT;
+int Jumph = 0;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
@@ -16,6 +16,7 @@ CPlayer::CPlayer()
 }
 
 void CPlayer::Update() {
+	y = my + Jumph;
 
 	//staticメソッドはどこからでも呼べる
 	if (CKey::Push('A')) {
@@ -35,34 +36,35 @@ void CPlayer::Update() {
 		}
 	}
 	if (CKey::Push('W')) {
-		y += 3;
+		my += 3;
 		mFx = 0;
 		mFy = 1;
-		if (y + h > 300) {
-			y = 300 - h;
+		if (my + h > 300) {
+			my = 300 - h;
 		}
 	}
 	if (CKey::Push('S')) {
-		y -= 3;
+		my -= 3;
 		mFx = 0;
 		mFy = -1;
-		if (y - h < -300) {
+		if (my - h < -300) {
 			y = -300 + h;
 		}
 	}
 
 	if (CKey::Once(' ')) {
+		jumpCount = INIT_JUMPCOUNT;
 		Jump = true;
+		
 	}
 
 	if (Jump == true) {
-		if (jumpCount >= -20) {
-			jumpCount--;
-			y += jumpCount;
-		}
-		else if(jumpCount == -20) {
-			jumpCount = 20;
-			Jump = false;
+		if (jumpCount >= 0) {
+			Jumph += jumpCount - (INIT_JUMPCOUNT / 2);
+			jumpCount -= 1;
+			if (jumpCount < 0) {
+				Jump = false;
+			}
 		}
 	}
 	//攻撃で使う予定 ''内はとりあえずJ

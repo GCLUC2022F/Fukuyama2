@@ -4,7 +4,6 @@
 もしCRECTANGLE_Hのdefineがなければ#endifまで有効
 */
 #define CRECTANGLE_H //CRECTANGLE_Hを定義する
-#define INIT_JUMPH 0
 
 #include "glut.h"
 #include "CTexture.h"
@@ -39,7 +38,6 @@ public:
 
 	int x;		//中心のX座標
 	int y, w, h;	//中心のY座標,幅,高さ
-	int Jumph = INIT_JUMPH;
 	/*
 	DrawTriangle
 	三角形を描画する関数
@@ -81,7 +79,7 @@ public:
 	*/
 	virtual void Render(const CTexture &t, int left, int right
 		, int bottom, int top) {
-		t.DrawImage(x - w, x + w, y - h + Jumph, y + h + Jumph
+		t.DrawImage(x - w, x + w, y - h, y + h
 			, left, right, bottom, top);
 	}
 
