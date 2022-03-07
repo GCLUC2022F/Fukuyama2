@@ -1,5 +1,6 @@
 #include "CEnemy.h"
 #include "CTexture.h"
+#include "CKey.h"
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
@@ -112,10 +113,23 @@ void CEnemy::Update() {
 		}
 		*/
 	}
-	if (EPLAYER > 0) {
-		x--;
-		y--;
+	if (CKey::Push('W')) {
+		Enemyy--;
 	}
+	if (CKey::Push('S')) {
+		Enemyy++;
+	}
+	x--;
+	
+	if (Enemyy > 0) {
+		y--;
+		Enemyy--;
+	}
+	if (Enemyy < 0) {
+		y++;
+		Enemyy++;
+	}
+	
 	
 	
 	
