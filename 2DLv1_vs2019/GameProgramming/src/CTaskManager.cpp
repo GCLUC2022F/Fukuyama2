@@ -47,7 +47,7 @@ void CTaskManager::Collision() {
 	while (task->mpNext) {
 		CRectangle* next = (CRectangle*)task->mpNext;
 		while (next->mpNext) {
-				task->Collision(next, task);
+				task->Collision(task, next);
 				next->Collision(next, task);
 			next = (CRectangle*)next->mpNext;
 		}

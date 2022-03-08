@@ -7,7 +7,7 @@
 
 class CPlayer : public CRectangle {
 public:
-	int my;
+	int mPy;
 	int mFx, mFy;
 	//37
 	int FireCount;
