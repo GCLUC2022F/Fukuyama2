@@ -1,6 +1,5 @@
 #include "CSceneGame.h"
 #include "CTaskManager.h"
-#include "CCollisionManager.h"
 #include "CPlayer.h"
 #include <stdio.h>
 
