@@ -1,6 +1,7 @@
 #ifndef CPLAYER_H
 #define CPLAYER_H
 #include "CRectangle.h"
+#include "CTexture.h"
 #define INIT_PLAYERH 100;
 #define INIT_PLAYERW 40;
 #define INIT_JUMPCOUNT 30

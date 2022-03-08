@@ -4,6 +4,7 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
+extern CTexture Playergirljump1;
 bool Jump = false;
 int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
@@ -98,7 +99,26 @@ void CPlayer::Update() {
 }
 
 void CPlayer::Render() {
-	CRectangle::Render();//Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
+	if (mEnabled == true) {
+		if (Jump == true) {
+			int Px = 406;
+			int Py = 310;
+			(Jumpcount >= INIT_JUMPCOUNT * 9 / 10) ? CRectangle::Render(Playergirljump1, 220 - 60, 220 + 60, 220 + 110, 220 - 130) :
+				Jumpcount < INIT_JUMPCOUNT * 9 / 10 && Jumpcount >= INIT_JUMPCOUNT * 8 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 1, 220 + 60 + Px * 1, 220 + 110, 220 - 130) :
+				Jumpcount < INIT_JUMPCOUNT * 8 / 10 && Jumpcount >= INIT_JUMPCOUNT * 7 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 2, 220 + 60 + Px * 2, 220 + 110, 220 - 130):
+				Jumpcount < INIT_JUMPCOUNT * 7 / 10 && Jumpcount >= INIT_JUMPCOUNT * 6 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 3, 220 + 60 + Px * 3, 220 + 110, 220 - 130) :
+				Jumpcount < INIT_JUMPCOUNT * 6 / 10 && Jumpcount >= INIT_JUMPCOUNT * 5 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 4, 220 + 60 + Px * 4, 220 + 110, 220 - 130) :
+				Jumpcount < INIT_JUMPCOUNT * 5 / 10 && Jumpcount >= INIT_JUMPCOUNT * 4 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60, 220 + 60, 220 + 110 + Py, 220 - 130 + Py) :
+				Jumpcount < INIT_JUMPCOUNT * 4 / 10 && Jumpcount >= INIT_JUMPCOUNT * 3 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 1, 220 + 60 + Px * 1, 220 + 110 + Py, 220 - 130 + Py) :
+				Jumpcount < INIT_JUMPCOUNT * 3 / 10 && Jumpcount >= INIT_JUMPCOUNT * 2 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 2, 220 + 60 + Px * 2, 220 + 110 + Py, 220 - 130 + Py) :
+				Jumpcount < INIT_JUMPCOUNT * 2 / 10 && Jumpcount >= INIT_JUMPCOUNT * 1 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 3, 220 + 60 + Px * 3, 220 + 110 + Py, 220 - 130 + Py) :
+				Jumpcount < INIT_JUMPCOUNT * 1 / 10 && Jumpcount >= 0 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 4, 220 + 60 + Px * 4, 220 + 110 + Py, 220 - 130 + Py) :
+				mEnabled = false;
+		}
+		else {
+			CRectangle::Render(Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
+		}
+	}
 }
 
 //36
