@@ -2,6 +2,7 @@
 #define CTASKMANAGER_H
 
 #include "CTask.h"
+#include "CRectangle.h"
 
 class CTaskManager {
 public:
@@ -15,6 +16,7 @@ public:
 
 	void Update();
 	void Render();
+	void Collision();
 
 	void Remove(CTask* task);
 

@@ -75,7 +75,7 @@ void CSceneGame::Init() {
 void CSceneGame::Update() {
 	CTaskManager::Get()->Update();
 	CTaskManager::Get()->Render();
-	CCollisionManager::Get()->Collision();
+	CTaskManager::Get()->Collision();
 
 	CText::DrawChar('S', -350, 250, 16, 16);
 	CText::DrawChar('c', -350 + 32, 250, 16, 16);

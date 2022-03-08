@@ -42,6 +42,19 @@ void CTaskManager::Render() {
 	}
 }
 
+void CTaskManager::Collision() {
+	CRectangle* task = (CRectangle*)mHead.mpNext;
+	while (task->mpNext) {
+		CRectangle* next = (CRectangle*)task->mpNext;
+		while (next->mpNext) {
+				task->Collision(next, task);
+				next->Collision(next, task);
+			next = (CRectangle*)next->mpNext;
+		}
+		task = (CRectangle*)task->mpNext;
+	}
+}
+
 void CTaskManager::Remove(CTask* task) {
 	task->mpPrev->mpNext = task->mpNext;
 	task->mpNext->mpPrev = task->mpPrev;
@@ -57,8 +70,3 @@ void CTaskManager::Delete() {
 		}
 	}
 }
-
-
-
-
-
