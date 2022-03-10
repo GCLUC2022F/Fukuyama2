@@ -3,7 +3,7 @@
 #include "CRectangle.h"
 #include "CBullet.h"
 #include "CPlayer.h"
-
+#include <math.h>
 
 
 class CEnemy : public CRectangle {
@@ -13,6 +13,8 @@ public:
 	int Enemyx;
 	int Enemyy;
 	int Enemyz;
+	int Enemyza;
+	int Enemyzb;
 //	bool mEnabled;	//—LŒøƒtƒ‰ƒO
 
 //37	CBullet EBullet[20];
