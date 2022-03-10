@@ -114,19 +114,22 @@ void CEnemy::Update() {
 		*/
 	}
 	if (CKey::Push('W')) {
+		
 		Enemyy--;
 	}
 	if (CKey::Push('S')) {
+		
 		Enemyy++;
 	}
-	x--;
-	
+	x += mFx;
+	y += mFy;
+
 	if (Enemyy > 0) {
-		y--;
+	    mFy = -1;
 		Enemyy--;
 	}
 	if (Enemyy < 0) {
-		y++;
+        mFy = 1;
 		Enemyy++;
 	}
 	
