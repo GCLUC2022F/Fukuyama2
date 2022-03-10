@@ -1,9 +1,12 @@
 #include "CEnemy.h"
 #include "CTexture.h"
 #include "CKey.h"
+#include <math.h>
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
+int CPlayer::Playerx = 0;
+int CPlayer::Playery = 0;
 CEnemy::CEnemy()
 : mFx(1.0f), mFy(0.0f), mFireCount(60)
 {
@@ -124,15 +127,16 @@ void CEnemy::Update() {
 	x += mFx;
 	y += mFy;
 
-	if (Enemyy > 0) {
-	    mFy = -1;
-		Enemyy--;
+	//if (Enemyy > 0) {    
+		//Enemyy--;
+	//}
+	//if (Enemyy < 0) {
+      //  mFy = 1;
+		//Enemyy++;	}
+	Enemyz = sqrtf(((Enemyx-CPlayer::Playerx)^2)+((Enemyy-CPlayer::Playery)^2));
+	if (Enemyz < 0) {
+		mFx--;
 	}
-	if (Enemyy < 0) {
-        mFy = 1;
-		Enemyy++;
-	}
-	
 	
 	
 	

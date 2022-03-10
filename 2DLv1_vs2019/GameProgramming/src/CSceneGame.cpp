@@ -14,20 +14,22 @@ void CSceneGame::Init() {
 	//クラスのメンバ変数への代入
 //37
 	CPlayer *Player = new CPlayer();
-	Player->x = 150;
-	Player->mPy = 150;
+	Player->x = -150;
+	Player->mPy = 0;
+	Player->Playerx=-150;
+	Player->Playery=0;
 	Player->w = INIT_PLAYERW;
 	Player->h = INIT_PLAYERH;
 	Player->mEnabled = true;
 //37
 	int map[6][8] =
 	{
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 1 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 2 },
+		{ 0, 0, 0, 0, 0, 0, 0, 2 },
+		{ 0, 0, 0, 0, 0, 0, 0, 3 },
+		{ 0, 0, 0, 0, 0, 0, 3, 0 },
+		{ 0, 0, 0, 0, 0, 0, 4, 0 },
+		{ 0, 0, 0, 0, 0, 0, 4, 0 },
 	};
 //37	MapSize = 0;	//0を代入する
 	for (int j = 0; j < 6; j++) {
@@ -49,23 +51,30 @@ void CSceneGame::Init() {
 				Enemy->x = i * 100 - 350;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
-				Enemy->mFx = 0;
-				Enemy->mFy = 1;
-				/*37
-				for (int k = 0; k < 10; k++) {
-					if (!Enemy[k].mEnabled) {
-						//敵に値を設定
-						Enemy[k].x = i * 100 - 350;
-						Enemy[k].y = j * -100 + 250;
-						//右へ移動
-						Enemy[k].mFx = 0;
-						Enemy[k].mFy = 1;
-						//有効にする
-						Enemy[k].mEnabled = true;
-						break;
-					}
-				}
-				*/
+				Enemy->mFx = -1;
+				Enemy->mFy = 0;
+				Enemy->Enemyx = i * -100 - 350;
+				Enemy->Enemyy = j * -100 + 250;
+			}
+			else if (map[j][i] == 3) {
+				CEnemy* Enemy = new CEnemy();
+				Enemy->x = i * 100 - 350;
+				Enemy->y = j * -100 + 250;
+				//右へ移動
+				Enemy->mFx = -1;
+				Enemy->mFy = -1;
+				Enemy->Enemyx = i * -100 - 350;
+				Enemy->Enemyy = j * -100 + 250;
+			}
+			else if (map[j][i] == 4) {
+				CEnemy* Enemy = new CEnemy();
+				Enemy->x = i * 100 - 350;
+				Enemy->y = j * -100 + 250;
+				//右へ移動
+				Enemy->mFx = 1;
+				Enemy->mFy = 0;
+				Enemy->Enemyx = i * -100 - 350;
+				Enemy->Enemyy = j * -100 + 250;
 			}
 		}
 	}

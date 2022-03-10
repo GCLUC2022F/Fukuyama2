@@ -12,7 +12,7 @@ public:
 	float mFy; //Y²•ûŒü‚ÌˆÚ“® -1:‰º 0:ˆÚ“®‚µ‚È‚¢ 1:ã‚ÖˆÚ“®
 	int Enemyx;
 	int Enemyy;
-	
+	int Enemyz;
 //	bool mEnabled;	//—LŒøƒtƒ‰ƒO
 
 //37	CBullet EBullet[20];

@@ -9,6 +9,8 @@
 class CPlayer : public CRectangle {
 public:
 	int mPy;
+	static int Playerx;
+	static int Playery;
 	int mFx, mFy;
 	//37
 	int FireCount;

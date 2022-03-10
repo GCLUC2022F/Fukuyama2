@@ -8,6 +8,8 @@ extern CTexture Playergirljump1;
 bool Jump = false;
 int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
+int Playerx = 0;
+int Playery = 0;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
@@ -23,6 +25,7 @@ void CPlayer::Update() {
 	if (CKey::Push('A')) {
 		x -= 3;
 		mFx = -1;
+        Playerx = -1;
 		mFy = 0;
 		if (x - w < -400) {
 			x = -400 + w;
@@ -31,6 +34,7 @@ void CPlayer::Update() {
 	if (CKey::Push('D')) {
 		x += 3;
 		mFx = 1;
+		Playerx = 1;
 		mFy = 0;
 		if (x + w > 400) {
 			x = 400 - w;
@@ -40,6 +44,7 @@ void CPlayer::Update() {
 		mPy += 3;
 		mFx = 0;
 		mFy = 1;
+		Playery = 1;
 		if (mPy + h > 300) {
 			mPy = 300 - h;
 		}
@@ -48,6 +53,7 @@ void CPlayer::Update() {
 		mPy -= 3;
 		mFx = 0;
 		mFy = -1;
+		Playery = -1;
 		if (mPy - h < -300) {
 			mPy = -300 + h;
 		}
