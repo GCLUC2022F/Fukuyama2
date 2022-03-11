@@ -2,13 +2,12 @@
 #define CPLAYER_H
 #include "CRectangle.h"
 #include "CTexture.h"
-#define INIT_PLAYERH 100;
-#define INIT_PLAYERW 40;
+#define INIT_PLAYERH 100
+#define INIT_PLAYERW 40
 #define INIT_JUMPCOUNT 30
 
 class CPlayer : public CRectangle {
 public:
-	int mPy;
 	static int Playerx;
 	static int Playery;
 	int mFx, mFy;

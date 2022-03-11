@@ -7,6 +7,7 @@
 int Time = 30 * 60;
 int Remain = 3;
 
+
 void CSceneGame::Init() {
 	//ƒV[ƒ“‚ÌÝ’è
 	mScene = EGAME;
@@ -15,9 +16,9 @@ void CSceneGame::Init() {
 //37
 	CPlayer *Player = new CPlayer();
 	Player->x = -150;
-	Player->mPy = 0;
-	Player->Playerx=-150;
-	Player->Playery=0;
+	Player->y = 0;
+	Player->Playerx = Player->x;
+	Player->Playery = Player->y;
 	Player->w = INIT_PLAYERW;
 	Player->h = INIT_PLAYERH;
 	Player->mEnabled = true;
@@ -26,7 +27,7 @@ void CSceneGame::Init() {
 	{
 		{ 0, 0, 0, 0, 0, 0, 0, 2 },
 		{ 0, 0, 0, 0, 0, 0, 0, 2 },
-		{ 0, 0, 0, 0, 0, 0, 0, 3 },
+		{ 0, 0, 0, 0, 0, 0, 1, 3 },
 		{ 0, 0, 0, 0, 0, 0, 3, 0 },
 		{ 0, 0, 0, 0, 0, 0, 4, 0 },
 		{ 0, 0, 0, 0, 0, 0, 4, 0 },
