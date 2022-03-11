@@ -21,6 +21,7 @@ public:
 		EPLAYER,
 		EENEMYBULLET,
 		EENEMY,
+		EFIELD
 	};
 	ETag mTag;	//列挙型の変数
 	//デフォルトコンストラクタ

@@ -10,6 +10,7 @@
 // テクスチャクラスのインクルード
 #include "CTexture.h"
 CTexture Texture; //マップの画像
+CTexture Stagefloor1;
 CTexture Playerboy;
 CTexture Playergirljump1;
 //シーンマネージャのインスタンス
@@ -18,8 +19,8 @@ CSceneManager SceneManager;
 //Init関数
 //最初に一度だけ呼ばれる関数
 void Init() {
-	//
 	Texture.Load("res\\Image.tga");
+	Stagefloor1.Load("res\\学校床.png");
 	Playergirljump1.Load("res\\Girljump1.png");
 	//文字画像の読み込み
 	CText::mFont.Load("res\\font.tga");
