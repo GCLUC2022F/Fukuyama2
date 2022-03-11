@@ -16,8 +16,8 @@ void CSceneGame::Init() {
 	CField *Floor = new CField();
 	Floor->x = 0;
 	Floor->y = 0;
-	Floor->w = 400;
-	Floor->h = 300;
+	Floor->w = 960;
+	Floor->h = 540;
 	Floor->mEnabled = true;
 
 	//ƒNƒ‰ƒX‚Ìƒƒ“ƒo•Ï”‚Ö‚Ì‘ã“ü
@@ -37,7 +37,7 @@ void CSceneGame::Init() {
 		{ 0, 0, 0, 0, 0, 0, 0, 3 },
 		{ 0, 0, 0, 0, 0, 0, 3, 0 },
 		{ 0, 0, 0, 0, 0, 0, 4, 0 },
-		{ 0, 0, 0, 0, 0, 1, 4, 0 },
+		{ 0, 0, 0, 0, 0, 0, 4, 0 },
 	};
 //37	MapSize = 0;	//0‚ğ‘ã“ü‚·‚é
 	for (int j = 0; j < 6; j++) {
