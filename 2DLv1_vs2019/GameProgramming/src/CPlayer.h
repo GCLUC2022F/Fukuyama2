@@ -2,9 +2,9 @@
 #define CPLAYER_H
 #include "CRectangle.h"
 #include "CTexture.h"
-#define INIT_PLAYERH 100
-#define INIT_PLAYERW 40
-#define INIT_JUMPCOUNT 30
+#define INIT_PLAYERH 250
+#define INIT_PLAYERW 100
+#define INIT_JUMPCOUNT 40
 
 class CPlayer : public CRectangle {
 public:

@@ -26,8 +26,8 @@ void CPlayer::Update() {
 		mFx = -1;
         Playerx = -1;
 		mFy = 0;
-		if (x - w < -400) {
-			x = -400 + w;
+		if (x - w < -960) {
+			x = -960 + w;
 		}
 	}
 	if (CKey::Push('D')) {
@@ -35,8 +35,8 @@ void CPlayer::Update() {
 		mFx = 1;
 		Playerx = 1;
 		mFy = 0;
-		if (x + w > 400) {
-			x = 400 - w;
+		if (x + w > 960) {
+			x = 960 - w;
 		}
 	}
 	if (CKey::Push('W')) {
@@ -44,8 +44,8 @@ void CPlayer::Update() {
 		mFx = 0;
 		mFy = 1;
 		Playery = 1;
-		if (y + h > 300 + Jumph) {
-			y = 300 - h;
+		if (y + h > 250 + Jumph) {
+			y = 250 - h;
 		}
 	}
 	if (CKey::Push('S')) {
@@ -53,8 +53,8 @@ void CPlayer::Update() {
 		mFx = 0;
 		mFy = -1;
 		Playery = -1;
-		if (y - h < -300) {
-			y = -300 + h;
+		if (y - h < -540) {
+			y = -540 + h;
 		}
 	}
 
@@ -122,7 +122,7 @@ void CPlayer::Render() {
 				mEnabled = false;
 		}
 		else {
-			CRectangle::Render(Texture, 146 - 16, 146 + 16, 146 + 16, 146 - 16);
+			CRectangle::Render(Playergirljump1, 220 - 60, 220 + 60, 220 + 110, 220 - 130);
 		}
 	}
 }
