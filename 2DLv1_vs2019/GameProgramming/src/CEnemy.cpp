@@ -7,6 +7,7 @@ extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
+
 CEnemy::CEnemy()
 : mFx(1.0f), mFy(0.0f), mFireCount(60)
 {
@@ -15,6 +16,8 @@ CEnemy::CEnemy()
 	mTag = EENEMY;
 	w = 25;
 	h = 25;
+	Enemyx = 0;
+    Enemyy = 0;
 }
 
 void CEnemy::Update() {
@@ -39,7 +42,7 @@ void CEnemy::Update() {
 			EBullet->mEnabled = true;
 			EBullet->mTag = EENEMYBULLET;
 		}
-		mFireCount = 60;
+		mFireCount = 600;
 		//37e
 		/* 37
 		//“G’e”•ªŒJ‚è•Ô‚µ
@@ -137,13 +140,11 @@ void CEnemy::Update() {
 	//if (Enemyy < 0) {
       //  mFy = 1;
 		//Enemyy++;	}
-	    Enemyza = pow(Enemyx, Enemyy);
-	    Enemyzb = pow(CPlayer::Playerx, CPlayer::Playery);
-		Enemyz = sqrtf(Enemyza+Enemyzb);//(Enemyx-CPlayer::Playerx)+(Enemyy-CPlayer::Playery));
-	   
-	if (Enemyz < 0) {
-		mFx -= 1;
 
+		Enemyz = sqrt((Enemyx-CPlayer::Playerx)+(Enemyy-CPlayer::Playery));
+		Enemyz = pow(Enemyz, 3);
+	if (Enemyz > 0) {
+	Enemyz=mFx--;
 	}
 	
 	
@@ -181,6 +182,7 @@ void CEnemy::Render() {
 	if (mEnabled) {
 		CRectangle::Render(Texture, 146 - 16, 146 + 16, 178 + 16, 178 - 16);
 	}
+	
 }
 
 //36
