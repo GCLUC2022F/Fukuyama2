@@ -1,27 +1,35 @@
 #include "CSceneGame.h"
 #include "CTaskManager.h"
 #include "CPlayer.h"
+#include "CField.h"
 #include <stdio.h>
 
 //残り時間（30秒）
 int Time = 30 * 60;
 int Remain = 3;
 
+
 void CSceneGame::Init() {
 	//シーンの設定
 	mScene = EGAME;
+//37
+	CField *Floor = new CField();
+	Floor->x = 0;
+	Floor->y = 0;
+	Floor->w = 400;
+	Floor->h = 300;
+	Floor->mEnabled = true;
 
 	//クラスのメンバ変数への代入
 //37
 	CPlayer *Player = new CPlayer();
 	Player->x = -150;
-	Player->mPy = 0;
-	Player->Playerx=-150;
-	Player->Playery=0;
+	Player->y = 0;
+	Player->Playerx = Player->x;
+	Player->Playery = Player->y;
 	Player->w = INIT_PLAYERW;
 	Player->h = INIT_PLAYERH;
 	Player->mEnabled = true;
-//37
 	int map[6][8] =
 	{
 		{ 0, 0, 0, 0, 0, 0, 0, 2 },
@@ -29,7 +37,7 @@ void CSceneGame::Init() {
 		{ 0, 0, 0, 0, 0, 0, 0, 3 },
 		{ 0, 0, 0, 0, 0, 0, 3, 0 },
 		{ 0, 0, 0, 0, 0, 0, 4, 0 },
-		{ 0, 0, 0, 0, 0, 0, 4, 0 },
+		{ 0, 0, 0, 0, 0, 1, 4, 0 },
 	};
 //37	MapSize = 0;	//0を代入する
 	for (int j = 0; j < 6; j++) {

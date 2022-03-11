@@ -19,7 +19,6 @@ CPlayer::CPlayer()
 }
 
 void CPlayer::Update() {
-	y = mPy + Jumph;
 
 	//staticƒƒ\ƒbƒh‚Í‚Ç‚±‚©‚ç‚Å‚àŒÄ‚×‚é
 	if (CKey::Push('A')) {
@@ -41,34 +40,35 @@ void CPlayer::Update() {
 		}
 	}
 	if (CKey::Push('W')) {
-		mPy += 3;
+		y += 3;
 		mFx = 0;
 		mFy = 1;
 		Playery = 1;
-		if (mPy + h > 300) {
-			mPy = 300 - h;
+		if (y + h > 300 + Jumph) {
+			y = 300 - h;
 		}
 	}
 	if (CKey::Push('S')) {
-		mPy -= 3;
+		y -= 3;
 		mFx = 0;
 		mFy = -1;
 		Playery = -1;
-		if (mPy - h < -300) {
-			mPy = -300 + h;
+		if (y - h < -300) {
+			y = -300 + h;
 		}
 	}
 
 	if (CKey::Once(' ')) {
 		if (Jump == false) {
-			Jumpcount = INIT_JUMPCOUNT;
+			Jumpcount = INIT_JUMPCOUNT;		
 			Jump = true;
-		}	
+		}
 	}
 
 	if (Jump == true) {
 		if (Jumpcount >= 0) {
-			Jumph += Jumpcount - (INIT_JUMPCOUNT / 2);
+			y += Jumpcount - (INIT_JUMPCOUNT / 2);
+			Jumph = Jumpcount - (INIT_JUMPCOUNT / 2);
 			Jumpcount -= 1;
 			if (Jumpcount < 0) {
 				Jump = false;
