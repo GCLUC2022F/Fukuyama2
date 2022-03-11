@@ -18,6 +18,7 @@ CEnemy::CEnemy()
 	h = 25;
 	Enemyx = 0;
     Enemyy = 0;
+	Enemyz = 0;
 }
 
 void CEnemy::Update() {
@@ -141,12 +142,15 @@ void CEnemy::Update() {
       //  mFy = 1;
 		//Enemyy++;	}
 
-		Enemyz = sqrt((Enemyx-CPlayer::Playerx)+(Enemyy-CPlayer::Playery));
-		Enemyz = pow(Enemyz, 3);
-	if (Enemyz > 0) {
-	Enemyz=mFx--;
+		Enemyz = sqrt((CPlayer::Playerx-Enemyx)+(CPlayer::Playery - Enemyy));
+		Enemyz = pow(Enemyz, 2);
+	if (Enemyz >=0) {
+
+		mFx--;
+		
 	}
 	
+
 	
 	
 }
