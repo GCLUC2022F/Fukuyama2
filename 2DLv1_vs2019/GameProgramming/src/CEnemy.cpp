@@ -142,7 +142,7 @@ void CEnemy::Update() {
       //  mFy = 1;
 		//Enemyy++;	}
 
-		Enemyz = sqrt((CPlayer::Playerx-Enemyx)+(CPlayer::Playery - Enemyy));
+		Enemyz = sqrtf((CPlayer::Playerx-Enemyx)+(CPlayer::Playery - Enemyy));
 		Enemyz = pow(Enemyz, 2);
 	if (Enemyz >=0) {
 
