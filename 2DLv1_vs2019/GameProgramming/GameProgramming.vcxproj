@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CBack.cpp" />
     <ClCompile Include="src\CBullet.cpp" />
     <ClCompile Include="src\CEnemy.cpp" />
     <ClCompile Include="src\CField.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="src\Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CBack.h" />
     <ClInclude Include="src\CBullet.h" />
     <ClInclude Include="src\CEnemy.h" />
     <ClInclude Include="src\CField.h" />

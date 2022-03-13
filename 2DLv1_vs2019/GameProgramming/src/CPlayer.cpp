@@ -19,7 +19,6 @@ CPlayer::CPlayer()
 }
 
 void CPlayer::Update() {
-
 	//staticƒƒ\ƒbƒh‚Í‚Ç‚±‚©‚ç‚Å‚àŒÄ‚×‚é
 	if (CKey::Push('A')) {
 		x -= 3;
@@ -44,7 +43,7 @@ void CPlayer::Update() {
 		mFx = 0;
 		mFy = 1;
 		Playery = 1;
-		if (y + h > 250 + Jumph) {
+		if (y + h > 250) {
 			y = 250 - h;
 		}
 	}
@@ -107,8 +106,8 @@ void CPlayer::Update() {
 void CPlayer::Render() {
 	if (mEnabled == true) {
 		if (Jump == true) {
-			int Px = 406;
-			int Py = 310;
+			int Px = 400;
+			int Py = 300;
 			(Jumpcount >= INIT_JUMPCOUNT * 9 / 10) ? CRectangle::Render(Playergirljump1, 220 - 60, 220 + 60, 220 + 110, 220 - 130) :
 				Jumpcount < INIT_JUMPCOUNT * 9 / 10 && Jumpcount >= INIT_JUMPCOUNT * 8 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 1, 220 + 60 + Px * 1, 220 + 110, 220 - 130) :
 				Jumpcount < INIT_JUMPCOUNT * 8 / 10 && Jumpcount >= INIT_JUMPCOUNT * 7 / 10 ? CRectangle::Render(Playergirljump1, 220 - 60 + Px * 2, 220 + 60 + Px * 2, 220 + 110, 220 - 130):

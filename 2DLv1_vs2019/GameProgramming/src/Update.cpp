@@ -10,6 +10,7 @@
 // テクスチャクラスのインクルード
 #include "CTexture.h"
 CTexture Texture; //マップの画像
+CTexture Stageback1;
 CTexture Stagefloor1;
 CTexture Playerboy;
 CTexture Playergirljump1;
@@ -21,6 +22,7 @@ CSceneManager SceneManager;
 void Init() {
 	Texture.Load("res\\Image.tga");
 	Stagefloor1.Load("res\\学校床.png");
+	Stageback1.Load("res\\学校背景.png");
 	Playergirljump1.Load("res\\Girljump1.png");
 	//文字画像の読み込み
 	CText::mFont.Load("res\\font.tga");
