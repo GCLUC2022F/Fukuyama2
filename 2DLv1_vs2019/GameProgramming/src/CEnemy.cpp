@@ -144,7 +144,7 @@ void CEnemy::Update() {
         //mFy++;
 		//Enemyy++;	
     }
-	if(mEnabled){
+
 		Enemyz = sqrtf(((CPlayer::Playerx-Enemyx)^2)+((CPlayer::Playery - Enemyy)^2));
 		if (Enemyz < 0) {
 		     mFx=1;
@@ -154,7 +154,7 @@ void CEnemy::Update() {
 		mFx=-1;
 	    }
 	
-	}
+	
 
 	
 	
