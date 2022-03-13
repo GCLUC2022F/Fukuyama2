@@ -1,6 +1,7 @@
 #include "CSceneGame.h"
 #include "CTaskManager.h"
 #include "CPlayer.h"
+#include "CBack.h"
 #include "CField.h"
 #include <stdio.h>
 
@@ -13,6 +14,13 @@ void CSceneGame::Init() {
 	//ƒV[ƒ“‚ÌÝ’è
 	mScene = EGAME;
 //37
+	CBack *Back = new CBack();
+	Back->x = 0;
+	Back->y = 0;
+	Back->w = 960;
+	Back->h = 540;
+	Back->mEnabled = true;
+
 	CField *Floor = new CField();
 	Floor->x = 0;
 	Floor->y = 0;
@@ -24,7 +32,7 @@ void CSceneGame::Init() {
 //37
 	CPlayer *Player = new CPlayer();
 	Player->x = -150;
-	Player->y = 0;
+	Player->y = -100;
 	Player->Playerx = Player->x;
 	Player->Playery = Player->y;
 	Player->w = INIT_PLAYERW;
