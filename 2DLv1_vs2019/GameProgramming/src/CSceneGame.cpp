@@ -31,8 +31,8 @@ void CSceneGame::Init() {
 	//クラスのメンバ変数への代入
 //37
 	CPlayer *Player = new CPlayer();
-	Player->x = -150;
-	Player->y = -100;
+	Player->x = -350;
+	Player->mPy = -100;
 	Player->Playerx = Player->x;
 	Player->Playery = Player->y;
 	Player->w = INIT_PLAYERW;
@@ -45,7 +45,7 @@ void CSceneGame::Init() {
 		{ 0, 0, 0, 0, 0, 0, 0, 3 },
 		{ 0, 0, 0, 0, 0, 0, 3, 0 },
 		{ 0, 0, 0, 0, 0, 0, 4, 0 },
-		{ 0, 0, 0, 0, 0, 0, 4, 0 },
+		{ 0, 0, 0, 0, 0, 1, 4, 0 },
 	};
 //37	MapSize = 0;	//0を代入する
 	for (int j = 0; j < 6; j++) {
@@ -56,10 +56,10 @@ void CSceneGame::Init() {
 				CMap *Map = new CMap();
 				//四角形に値を設定
 				Map->mEnabled = true;
-				Map->x = i * 100 - 350;
-				Map->y = j * -100 + 250;
-				Map->w = 50;
-				Map->h = 50;
+				Map->x = i * 240 - 900;
+				Map->y = j * -180 + 495;
+				Map->w = 120;
+				Map->h = 90;
 				//37
 			}
 			else if (map[j][i] == 2) {
