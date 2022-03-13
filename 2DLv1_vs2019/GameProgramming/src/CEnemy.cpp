@@ -9,7 +9,7 @@ int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
 
 CEnemy::CEnemy()
-: mFx(1.0f), mFy(0.0f), mFireCount(60)
+: mFx(0.0f), mFy(0.0f), mFireCount(60)
 {
 	//37
 //	mEnabled = true;
@@ -19,6 +19,7 @@ CEnemy::CEnemy()
 	Enemyx = 0;
     Enemyy = 0;
 	Enemyz = 0;
+	Enemyza = 0;
 }
 
 void CEnemy::Update() {
@@ -135,20 +136,24 @@ void CEnemy::Update() {
 	x += mFx;
 	y += mFy;
 
-	//if (Enemyy > 0) {    
+	if (Enemyy > 0) {  
+		//mFy--;
 		//Enemyy--;
-	//}
-	//if (Enemyy < 0) {
-      //  mFy = 1;
-		//Enemyy++;	}
-
-		Enemyz = sqrtf((CPlayer::Playerx-Enemyx)+(CPlayer::Playery - Enemyy));
-		Enemyz = pow(Enemyz, 2);
-	if (Enemyz >=0) {
-
-		mFx--;
-		
 	}
+	if (Enemyy < 0) {
+        //mFy++;
+		//Enemyy++;	
+    }
+
+		Enemyz = sqrtf(((CPlayer::Playerx-Enemyx)^2)+((CPlayer::Playery - Enemyy)^2));
+		if (Enemyz < 0) {
+		     mFx=1;
+	    }
+
+		if (Enemyz > 0) {
+		mFx=-1;
+	    }
+	
 	
 
 	
