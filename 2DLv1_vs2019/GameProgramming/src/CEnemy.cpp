@@ -19,7 +19,6 @@ CEnemy::CEnemy()
 	Enemyx = 0;
     Enemyy = 0;
 	Enemyz = 0;
-	Enemyza = 0;
 }
 
 void CEnemy::Update() {
