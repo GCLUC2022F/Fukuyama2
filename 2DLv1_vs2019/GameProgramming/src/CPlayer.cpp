@@ -4,6 +4,7 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
+extern CTexture Shadow;
 extern CTexture Playergirljump1;
 bool Jump = false;
 int Jumpcount = INIT_JUMPCOUNT;
@@ -107,6 +108,7 @@ void CPlayer::Update() {
 
 void CPlayer::Render() {
 	if (mEnabled == true) {
+		CRectangle::Render(Shadow, 5360, 6460, 3700, 1360);
 		if (Jump == true) {
 			int Px = 400;
 			int Py = 300;
