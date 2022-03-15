@@ -7,7 +7,6 @@ extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
-
 CEnemy::CEnemy()
 : mFx(0.0f), mFy(0.0f), mFireCount(60)
 {
@@ -19,7 +18,7 @@ CEnemy::CEnemy()
 	Enemyx = 0;
     Enemyy = 0;
 	Enemyz = 0;
-	EnemyFlg = true;
+	EnemyChangeFlg = true;
 }
 
 void CEnemy::Update() {
@@ -33,7 +32,7 @@ void CEnemy::Update() {
 		//37s
 		//弾を4発四方へ発射する
 		for (int i = 0; i < 4; i++) {
-			CBullet *EBullet = new CBullet();
+			CBullet* EBullet = new CBullet();
 			//座標設定
 			EBullet->x = x;
 			EBullet->y = y;
@@ -121,45 +120,37 @@ void CEnemy::Update() {
 		}
 		*/
 	}
-	if (CKey::Push('W')) {
-		Enemyy++;
-	}
-	if (CKey::Push('S')) {
-		Enemyy--;
-	}
-	if (CKey::Push('A')) {
-		Enemyx--;
-	}
-	if (CKey::Push('D')) {
-		Enemyx++;
-	}
+	
 	x += mFx;
 	y += mFy;
-
-	
-
-
-		Enemyz = pow(CPlayer::Playerx - Enemyx, 2)+ pow(CPlayer::Playery - Enemyy,2);
-	    	Enemyz = sqrt(Enemyz);
-
-	
-		
-			 if (Enemyz > 500) {
-				 mFx = -1;
-				 EnemyFlg = false;
-				 if(EnemyFlg==true){
-			          mFx=1;
-					  EnemyFlg = true;
-			     }
-	         }
-
-		
-	
-	
-
-	
-	
+	if(EnemyChangeFlg==true){
+    if (CKey::Push('W')) {
+		Enemyy+=1;
+	}
+	if (CKey::Push('S')) {
+		Enemyy-=1;
+	}
+	if (CKey::Push('A')) {
+		Enemyx-=1;
+	}
+	if (CKey::Push('D')) {
+		Enemyx+=1;
+	 }
+    Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
+		Enemyz = sqrt(Enemyz);
+		if (Enemyz > 0) {
+			mFx = -1;
+			if(Enemyx>0){
+			EnemyChangeFlg = false;
+			}
+		}
+		if (EnemyChangeFlg==false) {
+			mFx = 1;
+		}
+	}
+   
 }
+
 /*
 親のCollisionをオーバーライドする
 衝突すると移動方向を反対にする
