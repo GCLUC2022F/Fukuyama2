@@ -21,12 +21,15 @@ void CSceneGame::Init() {
 	Back->h = 540;
 	Back->mEnabled = true;
 
-	CField *Floor = new CField();
-	Floor->x = 0;
-	Floor->y = 0;
-	Floor->w = 960;
-	Floor->h = 540;
-	Floor->mEnabled = true;
+	for (int f = 0; f < 2; f++) {
+	CField *Floor1 = new CField();
+	Floor1->x = 1920 * f;
+	Floor1->y = 0;
+	Floor1->w = 960;
+	Floor1->h = 540;
+	Floor1->mEnabled = true;
+	}
+
 
 	//ƒNƒ‰ƒX‚Ìƒƒ“ƒo•Ï”‚Ö‚Ì‘ã“ü
 //37
@@ -97,6 +100,7 @@ void CSceneGame::Init() {
 }
 
 void CSceneGame::Update() {
+
 	CTaskManager::Get()->Update();
 	CTaskManager::Get()->Render();
 	CTaskManager::Get()->Collision();

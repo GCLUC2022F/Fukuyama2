@@ -8,7 +8,10 @@ CField::CField() {
 }
 
 void CField::Update() {
-
+	x -= SCROLL_SPEED;
+	if (x == -1920) {
+		x = 1920;
+	}
 }
 
 void CField::Render() {
