@@ -35,7 +35,7 @@ void CSceneGame::Init() {
 //37
 	CPlayer *Player = new CPlayer();
 	Player->x = -350;
-	Player->mPy = -100;
+	Player->z = -100;
 	Player->Playerx = Player->x;
 	Player->Playery = Player->y;
 	Player->w = INIT_PLAYERW;
@@ -102,6 +102,7 @@ void CSceneGame::Init() {
 void CSceneGame::Update() {
 
 	CTaskManager::Get()->Update();
+	CTaskManager::Get()->DrawShadow();
 	CTaskManager::Get()->Render();
 	CTaskManager::Get()->Collision();
 

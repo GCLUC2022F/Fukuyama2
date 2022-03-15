@@ -13,6 +13,7 @@ public:
 	virtual ~CTask() {}
 
 	virtual void Update() {}
+	virtual void DrawShadow() {}
 	virtual void Render() {}
 
 protected:

@@ -8,7 +8,6 @@
 
 class CPlayer : public CRectangle {
 public:
-	int mPy = 0;
 	static int Playerx;
 	static int Playery;
 	int mFx, mFy;
@@ -17,6 +16,7 @@ public:
 	
 	CPlayer();
 	void Update();
+	void DrawShadow();
 	void Render();
 
 	//36
