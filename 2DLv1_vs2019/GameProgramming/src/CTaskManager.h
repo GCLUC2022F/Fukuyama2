@@ -15,6 +15,7 @@ public:
 	void Add(CTask* addTask);
 
 	void Update();
+	void DrawShadow();
 	void Render();
 	void Collision();
 

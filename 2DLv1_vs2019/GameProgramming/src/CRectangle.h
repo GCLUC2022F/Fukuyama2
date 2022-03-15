@@ -39,7 +39,7 @@ public:
 	EStatus mStatus;
 
 	int x;		//中心のX座標
-	int y, w, h;	//中心のY座標,幅,高さ
+	int y, z, w, h;	//中心のY座標,実際の奥行,幅,高さ
 	/*
 	DrawTriangle
 	三角形を描画する関数
@@ -59,6 +59,7 @@ public:
 	Draw
 	　四角形を描画する関数
 	 */
+	virtual void DrawShadow();
 	virtual void Render();
 	/*
 	Collision
@@ -79,11 +80,17 @@ public:
 	t:テクスチャのポインタ left:テクスチャの左X座標 right:テクスチャの右X座標
 	bottom:テクスチャの下Y座標 top:テクスチャの上Y座標
 	*/
+	virtual void DrawShadow(const CTexture& t, int left, int right
+		, int bottom, int top) {
+		t.DrawImage(x - w, x + w, y - h, y + h
+			, left, right, bottom, top);
+	}
 	virtual void Render(const CTexture &t, int left, int right
 		, int bottom, int top) {
 		t.DrawImage(x - w, x + w, y - h, y + h
 			, left, right, bottom, top);
 	}
+
 
 
 	virtual void Update() {};

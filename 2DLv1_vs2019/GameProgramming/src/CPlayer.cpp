@@ -4,10 +4,10 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
+extern CTexture Shadow;
 extern CTexture Playergirljump1;
 bool Jump = false;
 int Jumpcount = INIT_JUMPCOUNT;
-int mPy = 0;
 int Jumph = 0;
 int Playerx = 0;
 int Playery = 0;
@@ -20,7 +20,7 @@ CPlayer::CPlayer()
 }
 
 void CPlayer::Update() {
-	y = mPy + Jumph;
+	y = z + Jumph;
 	//staticメソッドはどこからでも呼べる
 	if (CKey::Push('A')) {
 		x -= 3;
@@ -41,21 +41,21 @@ void CPlayer::Update() {
 		}
 	}
 	if (CKey::Push('W')) {
-		mPy += 3;
+		z += 3;
 		mFx = 0;
 		mFy = 1;
 		Playery = 1;
-		if (mPy + h > 250) {
-			mPy = 250 - h;
+		if (z + h > 250) {
+			z = 250 - h;
 		}
 	}
 	if (CKey::Push('S')) {
-		mPy -= 3;
+		z -= 3;
 		mFx = 0;
 		mFy = -1;
 		Playery = -1;
-		if (mPy - h < -540) {
-			mPy = -540 + h;
+		if (z - h < -540) {
+			z = -540 + h;
 		}
 	}
 
@@ -105,8 +105,15 @@ void CPlayer::Update() {
 	//37
 }
 
+void CPlayer::DrawShadow() {
+	if (mEnabled == true) {
+	CRectangle::DrawShadow(Shadow, 5360, 6460, 3700, 1360);
+	}
+}	
+
 void CPlayer::Render() {
 	if (mEnabled == true) {
+		//CRectangle::DrawShadow(Shadow, 5360, 6460, 3700, 1360);
 		if (Jump == true) {
 			int Px = 400;
 			int Py = 300;
@@ -141,7 +148,7 @@ void CPlayer::Collision(CRectangle *ri, CRectangle *ry) {
 			}
 			else {
 				//Rectをyだけ移動する
-				mPy += my;
+				z += my;
 			}
 		}
 	}

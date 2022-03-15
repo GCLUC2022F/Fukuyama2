@@ -1,5 +1,6 @@
 #include "CRectangle.h"
 #include "CTaskManager.h"
+#include "CPlayer.h"
 //vector型のインクルード
 #include <vector>
 /*
@@ -38,9 +39,14 @@ void CRectangle::DrawRectangle(int x0, int y0, int x1, int y1, int x2, int y2, i
 	DrawTriangle(x0, y0, x2, y2, x3, y3);
 }
 
-void CRectangle::Render() {
+void CRectangle::DrawShadow() {
 	//クラスメンバの変数x,y,w,hを使用します
 	DrawRectangle(x + w, y + h, x - w, y + h, x - w, y - h, x + w, y - h);
+}
+
+void CRectangle::Render() {
+	//クラスメンバの変数x,y,w,hを使用します
+	DrawRectangle(x + w, z + h, x - w, z + h, x - w, z - h, x + w, z - h);
 }
 
 

@@ -34,6 +34,14 @@ void CTaskManager::Update() {
 	}
 }
 
+void CTaskManager::DrawShadow() {
+	CTask* task = mHead.mpNext;
+	while (task->mpNext) {
+		task->DrawShadow();
+		task = task->mpNext;
+	}
+}
+
 void CTaskManager::Render() {
 	CTask* task = mHead.mpNext;
 	while (task->mpNext) {
