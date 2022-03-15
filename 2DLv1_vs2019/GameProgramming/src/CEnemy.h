@@ -13,8 +13,8 @@ public:
 	int Enemyx;
 	int Enemyy;
 	int Enemyz;
-	int Enemyza;
-	int Enemyzb;
+	int EnemyFlg;
+	
 //	bool mEnabled;	//—LŒøƒtƒ‰ƒO
 
 //37	CBullet EBullet[20];
