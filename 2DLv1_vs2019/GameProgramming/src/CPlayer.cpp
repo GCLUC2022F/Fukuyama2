@@ -6,9 +6,11 @@
 extern CTexture Texture;
 extern CTexture Shadow;
 extern CTexture Playergirljump1;
+int CPlayer::Gender = 1;
 bool Jump = false;
 int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
+int Ju = 1;
 int Playerx = 0;
 int Playery = 0;
 
@@ -21,6 +23,12 @@ CPlayer::CPlayer()
 
 void CPlayer::Update() {
 	y = z + Jumph;
+
+	Ju = (INIT_JUMPCOUNT - Jumpcount) / 4;
+	if (Ju > 10) {
+		Ju = 10;
+	}
+
 	//staticƒƒ\ƒbƒh‚Í‚Ç‚±‚©‚ç‚Å‚àŒÄ‚×‚é
 	if (CKey::Push('A')) {
 		x -= 3;
@@ -42,7 +50,6 @@ void CPlayer::Update() {
 	}
 	if (CKey::Push('W')) {
 		z += 3;
-		mFx = 0;
 		mFy = 1;
 		Playery = 1;
 		if (z + h > 250) {
@@ -51,7 +58,6 @@ void CPlayer::Update() {
 	}
 	if (CKey::Push('S')) {
 		z -= 3;
-		mFx = 0;
 		mFy = -1;
 		Playery = -1;
 		if (z - h < -540) {
@@ -61,17 +67,16 @@ void CPlayer::Update() {
 
 	if (CKey::Once(' ')) {
 		if (Jump == false) {
-			Jumpcount = INIT_JUMPCOUNT;		
 			Jump = true;
 		}
 	}
 
 	if (Jump == true) {
 		if (Jumpcount >= 0) {
-			//y += Jumpcount - (INIT_JUMPCOUNT / 2);
 			Jumph += Jumpcount - (INIT_JUMPCOUNT / 2);
 			Jumpcount -= 1;
 			if (Jumpcount < 0) {
+				Jumpcount = INIT_JUMPCOUNT;		
 				Jump = false;
 			}
 		}
@@ -113,24 +118,27 @@ void CPlayer::DrawShadow() {
 
 void CPlayer::Render() {
 	if (mEnabled == true) {
-		//CRectangle::DrawShadow(Shadow, 5360, 6460, 3700, 1360);
-		if (Jump == true) {
-			int Px = 400;
-			int Py = 300;
-			(Jumpcount >= INIT_JUMPCOUNT * 9 / 10) ? CRectangle::Render(Playergirljump1, 223 - 43, 223 + 43, 204 + 106, 204 - 106) :
-				Jumpcount < INIT_JUMPCOUNT * 9 / 10 && Jumpcount >= INIT_JUMPCOUNT * 8 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 1, 223 + 43 + Px * 1, 204 + 106, 204 - 106) :
-				Jumpcount < INIT_JUMPCOUNT * 8 / 10 && Jumpcount >= INIT_JUMPCOUNT * 7 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 2, 223 + 43 + Px * 2, 204 + 106, 204 - 106) :
-				Jumpcount < INIT_JUMPCOUNT * 7 / 10 && Jumpcount >= INIT_JUMPCOUNT * 6 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 3, 223 + 43 + Px * 3, 204 + 106, 204 - 106) :
-				Jumpcount < INIT_JUMPCOUNT * 6 / 10 && Jumpcount >= INIT_JUMPCOUNT * 5 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 4, 223 + 43 + Px * 4, 204 + 106, 204 - 106) :
-				Jumpcount < INIT_JUMPCOUNT * 5 / 10 && Jumpcount >= INIT_JUMPCOUNT * 4 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43, 223 + 43, 204 + 106 + Py, 204 - 106 + Py) :
-				Jumpcount < INIT_JUMPCOUNT * 4 / 10 && Jumpcount >= INIT_JUMPCOUNT * 3 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 1, 223 + 43 + Px * 1, 204 + 106 + Py, 204 - 106 + Py) :
-				Jumpcount < INIT_JUMPCOUNT * 3 / 10 && Jumpcount >= INIT_JUMPCOUNT * 2 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 2, 223 + 43 + Px * 2, 204 + 106 + Py, 204 - 106 + Py) :
-				Jumpcount < INIT_JUMPCOUNT * 2 / 10 && Jumpcount >= INIT_JUMPCOUNT * 1 / 10 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 3, 223 + 43 + Px * 3, 204 + 106 + Py, 204 - 106 + Py) :
-				Jumpcount < INIT_JUMPCOUNT * 1 / 10 && Jumpcount >= 0 ? CRectangle::Render(Playergirljump1, 223 - 43 + Px * 4, 223 + 43 + Px * 4, 204 + 106 + Py, 204 - 106 + Py) :
-				mEnabled = false;
+		if (Gender == 1) {
+
 		}
-		else {
-			CRectangle::Render(Playergirljump1, 223 - 43, 223 + 43, 204 + 106, 204 - 106);
+		else if (Gender == 2){
+			if (mFx >= 0) {
+				if (Jump == true) {
+					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Ju % 5), 228 + 48 + 400 * (Ju % 5), 204 + 106 + 300 * (Ju / 5), 204 - 106 + 300 * (Ju / 5));
+				}
+				else {
+					CRectangle::Render(Playergirljump1, 228 - 48, 228 + 48, 204 + 106, 204 - 106);
+				}
+
+			}
+			else {
+				if (Jump == true) {
+					CRectangle::Render(Playergirljump1, 228 + 48 + 400 * (Ju % 5), 228 - 48 + 400 * (Ju % 5), 204 + 106 + 300 * (Ju / 5), 204 - 106 + 300 * (Ju / 5));
+				}
+				else {
+					CRectangle::Render(Playergirljump1, 228 + 48, 228 - 48, 204 + 106, 204 - 106);
+				}
+			}
 		}
 	}
 }

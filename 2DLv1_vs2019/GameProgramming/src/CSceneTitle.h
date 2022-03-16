@@ -6,6 +6,7 @@
 
 class CSceneTitle : public CScene {
 public:
+	int mSwitch;
 	//初期化処理のオーバーライド
 	void Init();
 	//更新処理のオーバーライド

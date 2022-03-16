@@ -66,11 +66,11 @@ bool CRectangle::Collision(const CRectangle &r) {
 
 	//Y軸の重なり判定
 	//中心のY座標の距離を求める
-	int lenY = y - r.y;
+	int lenZ = z - r.z;
 	//距離の絶対値を求める
-	lenY = lenY < 0 ? -lenY : lenY;
+	lenZ = lenZ < 0 ? -lenZ : lenZ;
 	//距離が幅の合計より大きいとき、Y軸は重なっていない
-	if (lenY > h + r.h) {
+	if (lenZ > h + r.h) {
 		//重なってなければ、衝突していない
 		//falseを返す
 		return false;
@@ -80,10 +80,10 @@ bool CRectangle::Collision(const CRectangle &r) {
 	return true;
 }
 
-bool CRectangle::Collision(CRectangle *pr, int *px, int *py) {
+bool CRectangle::Collision(CRectangle *pr, int *px, int *pz) {
 	//xとyを0に0を代入
 	*px = 0;
-	*py = 0;
+	*pz = 0;
 	//X軸の重なりを判定
 	//中心のX座標の距離を求める
 	int lenX = x - pr->x;
@@ -108,19 +108,19 @@ bool CRectangle::Collision(CRectangle *pr, int *px, int *py) {
 	}
 	//Y軸の重なり判定
 	//中心のX座標の距離を求める
-	int lenY = y - pr->y;
+	int lenZ = y - pr->z;
 	//距離の絶対値を求める
-	lenY = lenY < 0 ? -lenY : lenY;
+	lenZ = lenZ < 0 ? -lenZ : lenZ;
 	//距離が幅の合計より小さいとき、Y軸は重なっている
-	if (lenY < h + pr->h) {
+	if (lenZ < h + pr->h) {
 		//戻す量を計算
 		if (y < pr->y) {
 			//相手が右の時は左へ移動
-			*py = lenY - h - pr->h;
+			*pz = lenZ - h - pr->h;
 		}
 		else {
 			//相手が左の時は右へ移動
-			*py = h + pr->h - lenY;
+			*pz = h + pr->h - lenZ;
 		}
 	}
 	else {

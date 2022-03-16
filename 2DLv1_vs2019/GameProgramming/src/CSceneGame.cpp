@@ -60,6 +60,7 @@ void CSceneGame::Init() {
 				//四角形に値を設定
 				Map->mEnabled = true;
 				Map->x = i * 240 - 900;
+				Map->z = j * -180 + 495;
 				Map->y = j * -180 + 495;
 				Map->w = 120;
 				Map->h = 90;
@@ -68,6 +69,7 @@ void CSceneGame::Init() {
 			else if (map[j][i] == 2) {
 				CEnemy *Enemy = new CEnemy();
 				Enemy->x = i * 100 - 350;
+				Enemy->z = j * -100 + 250;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
 				Enemy->mFx = -1;
@@ -78,6 +80,7 @@ void CSceneGame::Init() {
 			else if (map[j][i] == 3) {
 				CEnemy* Enemy = new CEnemy();
 				Enemy->x = i * 100 - 350;
+				Enemy->z = j * -100 + 250;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
 				Enemy->mFx = -1;
@@ -88,6 +91,7 @@ void CSceneGame::Init() {
 			else if (map[j][i] == 4) {
 				CEnemy* Enemy = new CEnemy();
 				Enemy->x = i * 100 - 350;
+				Enemy->z = j * -100 + 250;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
 				Enemy->mFx = 1;

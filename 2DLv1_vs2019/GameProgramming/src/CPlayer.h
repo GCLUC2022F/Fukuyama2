@@ -5,9 +5,10 @@
 #define INIT_PLAYERH 250
 #define INIT_PLAYERW 100
 #define INIT_JUMPCOUNT 40
-
 class CPlayer : public CRectangle {
 public:
+	static int Gender;	//1,3,5Ç»ÇÁíj,2,4,6Ç»ÇÁèó
+
 	static int Playerx;
 	static int Playery;
 	int mFx, mFy;
