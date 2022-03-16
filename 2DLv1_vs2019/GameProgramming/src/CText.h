@@ -14,6 +14,7 @@ public:
 	static void DrawChar(char ch, int x, int y, int w, int h);
 	//•¶Žš—ñ‚Ì•`‰æ
 	static void DrawString(char *s, int x, int y, int w, int h);
+	static void DrawMiddle(const char* s, float x, int y, int w, int h, int d, float v);
 };
 
 #endif

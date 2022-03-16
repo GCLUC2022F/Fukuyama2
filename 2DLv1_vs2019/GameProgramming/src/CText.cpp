@@ -22,3 +22,15 @@ void CText::DrawString(char *s, int x, int y, int w, int h) {
 		x += w * 2;
 	}
 }
+void CText::DrawMiddle(const char* s, float x, int y, int w, int h, int d, float v) {
+	//1•¶Žš‚¸‚Â•`‰æ‚·‚é
+	if (d <= 0) {
+		d = 1;
+	}
+	for (int i = 0; s[i] != '\0'; i++) {
+		//•¶Žš‚ð•`‰æ‚·‚é
+		DrawChar(s[i], x - (w * (d - 1) * v), y, w, h);
+		//‰E‚ÖˆÚ“®
+		x += w * 2 * v;
+	}
+}

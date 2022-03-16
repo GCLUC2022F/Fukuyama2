@@ -60,6 +60,7 @@ void CSceneGame::Init() {
 				//四角形に値を設定
 				Map->mEnabled = true;
 				Map->x = i * 240 - 900;
+				Map->z = j * -180 + 495;
 				Map->y = j * -180 + 495;
 				Map->w = 120;
 				Map->h = 90;
@@ -68,6 +69,7 @@ void CSceneGame::Init() {
 			else if (map[j][i] == 2) {
 				CEnemy *Enemy = new CEnemy();
 				Enemy->x = i * 100 - 350;
+				Enemy->z = j * -100 + 250;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
 				Enemy->mFx = -1;
@@ -78,6 +80,7 @@ void CSceneGame::Init() {
 			else if (map[j][i] == 3) {
 				CEnemy* Enemy = new CEnemy();
 				Enemy->x = i * 100 - 350;
+				Enemy->z = j * -100 + 250;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
 				Enemy->mFx = -1;
@@ -88,6 +91,7 @@ void CSceneGame::Init() {
 			else if (map[j][i] == 4) {
 				CEnemy* Enemy = new CEnemy();
 				Enemy->x = i * 100 - 350;
+				Enemy->z = j * -100 + 250;
 				Enemy->y = j * -100 + 250;
 				//右へ移動
 				Enemy->mFx = 1;
@@ -102,22 +106,22 @@ void CSceneGame::Init() {
 void CSceneGame::Update() {
 
 	CTaskManager::Get()->Update();
-	CTaskManager::Get()->DrawShadow();
 	CTaskManager::Get()->Render();
+	//CTaskManager::Get()->DrawShadow();
 	CTaskManager::Get()->Collision();
 
-	CText::DrawChar('S', -350, 250, 16, 16);
-	CText::DrawChar('c', -350 + 32, 250, 16, 16);
-	CText::DrawChar('o', -350 + 32 * 2, 250, 16, 16);
-	CText::DrawChar('r', -350 + 32 * 3, 250, 16, 16);
-	CText::DrawChar('e', -350 + 32 * 4, 250, 16, 16);
+	//CText::DrawChar('S', -350, 250, 16, 16);
+	//CText::DrawChar('c', -350 + 32, 250, 16, 16);
+	//CText::DrawChar('o', -350 + 32 * 2, 250, 16, 16);
+	//CText::DrawChar('r', -350 + 32 * 3, 250, 16, 16);
+	//CText::DrawChar('e', -350 + 32 * 4, 250, 16, 16);
 
-	CText::DrawChar('P', 150, -250, 16, 16);
-	CText::DrawChar('l', 150 + 32, -250, 16, 16);
-	CText::DrawChar('a', 150 + 32 * 2, -250, 16, 16);
-	CText::DrawChar('y', 150 + 32 * 3, -250, 16, 16);
-	CText::DrawChar('e', 150 + 32 * 4, -250, 16, 16);
-	CText::DrawChar('r', 150 + 32 * 5, -250, 16, 16);
+	//CText::DrawChar('P', 150, -250, 16, 16);
+	//CText::DrawChar('l', 150 + 32, -250, 16, 16);
+	//CText::DrawChar('a', 150 + 32 * 2, -250, 16, 16);
+	//CText::DrawChar('y', 150 + 32 * 3, -250, 16, 16);
+	//CText::DrawChar('e', 150 + 32 * 4, -250, 16, 16);
+	//CText::DrawChar('r', 150 + 32 * 5, -250, 16, 16);
 
 	//文字列の描画
 	CText::DrawString("Time", 150, 250, 16, 16);

@@ -13,7 +13,6 @@ CTexture Texture; //マップの画像
 CTexture Stageback1;
 CTexture Stagefloor1;
 CTexture Shadow;
-CTexture Playerboy;
 CTexture Playergirljump1;
 //シーンマネージャのインスタンス
 CSceneManager SceneManager;
