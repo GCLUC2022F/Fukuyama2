@@ -3,7 +3,6 @@
 extern CTexture Stageback1;
 
 CBack::CBack() {
-
 	mTag = EFIELD;
 }
 
