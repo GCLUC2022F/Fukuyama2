@@ -60,10 +60,10 @@ void CEnemy::Update() {
 
       Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
 		Enemyz = sqrt(Enemyz);
-		if (Enemyz >0) {
+		if (Enemyz <0) {
 			EnemyFlg = false;
 		}
-		if (Enemyz < 0) {
+		if (Enemyz > 0) {
 			EnemyFlg = true;
 		}
 		if(EnemyFlg==false){
