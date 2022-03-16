@@ -13,12 +13,12 @@ CEnemy::CEnemy()
 	//37
 //	mEnabled = true;
 	mTag = EENEMY;
-	w = 25;
-	h = 25;
+	w = 50;
+	h = 50;
 	Enemyx = 0;
     Enemyy = 0;
 	Enemyz = 0;
-	EnemyChangeFlg = true;
+	EnemyFlg = true;
 }
 
 void CEnemy::Update() {
@@ -44,110 +44,42 @@ void CEnemy::Update() {
 			EBullet->mTag = EENEMYBULLET;
 		}
 		mFireCount = 600;
-		//37e
-		/* 37
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = 2;
-				EBullet[i].mFy = 0;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = -2;
-				EBullet[i].mFy = 0;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = 0;
-				EBullet[i].mFy = 2;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = 0;
-				EBullet[i].mFy = -2;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		*/
+		
 	}
 	
 	x += mFx;
 	y += mFy;
-	if(EnemyChangeFlg==true){
-    if (CKey::Push('W')) {
-		Enemyy+=1;
+	
+    if (mFx==-1) {
+		Enemyx--;
 	}
-	if (CKey::Push('S')) {
-		Enemyy-=1;
+	if (mFx==1) {
+		Enemyx++;
 	}
-	if (CKey::Push('A')) {
-		Enemyx-=1;
-	}
-	if (CKey::Push('D')) {
-		Enemyx+=1;
-	 }
-    Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
+	
+
+      Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
 		Enemyz = sqrt(Enemyz);
-		if (Enemyz > 0) {
+		if (Enemyz >0) {
+			EnemyFlg = false;
+		}
+		if (Enemyz < 0) {
+			EnemyFlg = true;
+		}
+		if(EnemyFlg==false){
 			mFx = -1;
-			if(Enemyx>0){
-			EnemyChangeFlg = false;
-			}
+			//if(Enemyx  < 0){
+			//EnemyFlg = true;
+			//}
 		}
-		if (EnemyChangeFlg==false) {
+		if (EnemyFlg==true) {
 			mFx = 1;
+			//if (Enemyx > 0) {
+				//EnemyFlg = false;
+			//}
 		}
-	}
+		
+
    
 }
 

@@ -13,7 +13,8 @@ public:
 	int Enemyx;
 	int Enemyy;
 	int Enemyz;
-	int EnemyChangeFlg;
+	int EnemyFlg;
+	int Flg;
 	
 //	bool mEnabled;	//—LŒøƒtƒ‰ƒO
 
