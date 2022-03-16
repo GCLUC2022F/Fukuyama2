@@ -106,22 +106,22 @@ void CSceneGame::Init() {
 void CSceneGame::Update() {
 
 	CTaskManager::Get()->Update();
-	CTaskManager::Get()->DrawShadow();
 	CTaskManager::Get()->Render();
+	//CTaskManager::Get()->DrawShadow();
 	CTaskManager::Get()->Collision();
 
-	CText::DrawChar('S', -350, 250, 16, 16);
-	CText::DrawChar('c', -350 + 32, 250, 16, 16);
-	CText::DrawChar('o', -350 + 32 * 2, 250, 16, 16);
-	CText::DrawChar('r', -350 + 32 * 3, 250, 16, 16);
-	CText::DrawChar('e', -350 + 32 * 4, 250, 16, 16);
+	//CText::DrawChar('S', -350, 250, 16, 16);
+	//CText::DrawChar('c', -350 + 32, 250, 16, 16);
+	//CText::DrawChar('o', -350 + 32 * 2, 250, 16, 16);
+	//CText::DrawChar('r', -350 + 32 * 3, 250, 16, 16);
+	//CText::DrawChar('e', -350 + 32 * 4, 250, 16, 16);
 
-	CText::DrawChar('P', 150, -250, 16, 16);
-	CText::DrawChar('l', 150 + 32, -250, 16, 16);
-	CText::DrawChar('a', 150 + 32 * 2, -250, 16, 16);
-	CText::DrawChar('y', 150 + 32 * 3, -250, 16, 16);
-	CText::DrawChar('e', 150 + 32 * 4, -250, 16, 16);
-	CText::DrawChar('r', 150 + 32 * 5, -250, 16, 16);
+	//CText::DrawChar('P', 150, -250, 16, 16);
+	//CText::DrawChar('l', 150 + 32, -250, 16, 16);
+	//CText::DrawChar('a', 150 + 32 * 2, -250, 16, 16);
+	//CText::DrawChar('y', 150 + 32 * 3, -250, 16, 16);
+	//CText::DrawChar('e', 150 + 32 * 4, -250, 16, 16);
+	//CText::DrawChar('r', 150 + 32 * 5, -250, 16, 16);
 
 	//•¶Žš—ñ‚Ì•`‰æ
 	CText::DrawString("Time", 150, 250, 16, 16);

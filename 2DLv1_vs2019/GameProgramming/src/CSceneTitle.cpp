@@ -41,7 +41,8 @@ void CSceneTitle::Update() {
 	}
 
 	CText::DrawString("TITLE", -200, 300, 50, 50);
-	CText::DrawString("Push ENTER Key",-200, -400, 16, 16);
+	CText::DrawMiddle("S D select", 0, -320, 16, 16, 10, 0.7);
+	CText::DrawString("Push ENTER Key",-200, -380, 16, 16);
 	if (CKey::Once(VK_RETURN)) {
 		//éüÇÃÉVÅ[ÉìÇÕÉQÅ[ÉÄ
 		mScene = EGAME;

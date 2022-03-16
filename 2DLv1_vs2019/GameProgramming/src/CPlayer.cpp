@@ -112,7 +112,7 @@ void CPlayer::Update() {
 
 void CPlayer::DrawShadow() {
 	if (mEnabled == true) {
-	CRectangle::DrawShadow(Shadow, 5360, 6460, 3700, 1360);
+		CRectangle::DrawShadow(Shadow, 5460, 6560, 3700, 1060);
 	}
 }	
 
@@ -121,13 +121,14 @@ void CPlayer::Render() {
 		if (Gender == 1) {
 
 		}
-		else if (Gender == 2){
+		else if (Gender == 2) {
+			CPlayer::DrawShadow();
 			if (mFx >= 0) {
 				if (Jump == true) {
 					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Ju % 5), 228 + 48 + 400 * (Ju % 5), 204 + 106 + 300 * (Ju / 5), 204 - 106 + 300 * (Ju / 5));
 				}
 				else {
-					CRectangle::Render(Playergirljump1, 228 - 48, 228 + 48, 204 + 106, 204 - 106);
+					CRectangle::Render(Playergirljump1, 228 - 48, 228 + 48, 204 + 116, 204 - 106);
 				}
 
 			}

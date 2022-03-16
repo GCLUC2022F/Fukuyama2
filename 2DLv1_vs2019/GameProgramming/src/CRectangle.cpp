@@ -40,13 +40,11 @@ void CRectangle::DrawRectangle(int x0, int y0, int x1, int y1, int x2, int y2, i
 }
 
 void CRectangle::DrawShadow() {
-	//クラスメンバの変数x,y,w,hを使用します
-	DrawRectangle(x + w, y + h, x - w, y + h, x - w, y - h, x + w, y - h);
 }
 
 void CRectangle::Render() {
 	//クラスメンバの変数x,y,w,hを使用します
-	DrawRectangle(x + w, z + h, x - w, z + h, x - w, z - h, x + w, z - h);
+	DrawRectangle(x + w, y + h, x - w, y + h, x - w, y - h, x + w, y - h);
 }
 
 
