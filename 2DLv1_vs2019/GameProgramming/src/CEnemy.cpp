@@ -7,15 +7,14 @@ extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
-
 CEnemy::CEnemy()
 : mFx(0.0f), mFy(0.0f), mFireCount(60)
 {
 	//37
 //	mEnabled = true;
 	mTag = EENEMY;
-	w = 25;
-	h = 25;
+	w = 50;
+	h = 50;
 	Enemyx = 0;
     Enemyy = 0;
 	Enemyz = 0;
@@ -33,7 +32,7 @@ void CEnemy::Update() {
 		//37s
 		//’e‚ğ4”­l•û‚Ö”­Ë‚·‚é
 		for (int i = 0; i < 4; i++) {
-			CBullet *EBullet = new CBullet();
+			CBullet* EBullet = new CBullet();
 			//À•Wİ’è
 			EBullet->x = x;
 			EBullet->y = y;
@@ -45,121 +44,45 @@ void CEnemy::Update() {
 			EBullet->mTag = EENEMYBULLET;
 		}
 		mFireCount = 600;
-		//37e
-		/* 37
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = 2;
-				EBullet[i].mFy = 0;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = -2;
-				EBullet[i].mFy = 0;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = 0;
-				EBullet[i].mFy = 2;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		//“G’e”•ªŒJ‚è•Ô‚µ
-		for (int i = 0; i < 20; i++) {
-			//–³Œø‚È’e‚È‚ç”­Ë‚·‚é
-			if (!EBullet[i].mEnabled) {
-				//À•Wİ’è
-				EBullet[i].x = x;
-				EBullet[i].y = y;
-				//ˆÚ“®—Êİ’è
-				EBullet[i].mFx = 0;
-				EBullet[i].mFy = -2;
-				//—LŒø‚É‚·‚é
-				EBullet[i].mEnabled = true;
-				EBullet[i].mTag = EENEMYBULLET;
-				//”­ËŠÔŠu‚ğ60ƒtƒŒ[ƒ€‚É‚·‚é
-				break;
-			}
-			mFireCount = 60;
-		}
-		*/
+		
 	}
-	if (CKey::Push('W')) {
-		Enemyy++;
-	}
-	if (CKey::Push('S')) {
-		Enemyy--;
-	}
-	if (CKey::Push('A')) {
-		Enemyx--;
-	}
-	if (CKey::Push('D')) {
-		Enemyx++;
-	}
+	
 	x += mFx;
 	y += mFy;
-
+	
+    if (mFx==-1) {
+		Enemyx--;
+	}
+	if (mFx==1) {
+		Enemyx++;
+	}
 	
 
-
-		Enemyz = pow(CPlayer::Playerx - Enemyx, 2)+ pow(CPlayer::Playery - Enemyy,2);
-	    	Enemyz = sqrt(Enemyz);
-
-	
+      Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
+		Enemyz = sqrt(Enemyz);
+		if (Enemyz <0) {
+			EnemyFlg = false;
+		}
+		if (Enemyz > 0) {
+			EnemyFlg = true;
+		}
+		if(EnemyFlg==false){
+			mFx = -1;
+			//if(Enemyx  < 0){
+			//EnemyFlg = true;
+			//}
+		}
+		if (EnemyFlg==true) {
+			mFx = 1;
+			//if (Enemyx > 0) {
+				//EnemyFlg = false;
+			//}
+		}
 		
-			 if (Enemyz > 500) {
-				 mFx = -1;
-				 EnemyFlg = false;
-				 if(EnemyFlg==true){
-			          mFx=1;
-					  EnemyFlg = true;
-			     }
-	         }
 
-		
-	
-	
-
-	
-	
+   
 }
+
 /*
 e‚ÌCollision‚ğƒI[ƒo[ƒ‰ƒCƒh‚·‚é
 Õ“Ë‚·‚é‚ÆˆÚ“®•ûŒü‚ğ”½‘Î‚É‚·‚é
