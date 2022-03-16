@@ -5,8 +5,7 @@
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
-int CPlayer::Playerx = 0;
-int CPlayer::Playery = 0;
+
 CEnemy::CEnemy()
 : mFx(0.0f), mFy(0.0f), mFireCount(60)
 {

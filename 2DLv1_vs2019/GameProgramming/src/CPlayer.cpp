@@ -11,8 +11,8 @@ bool JumpFlg = false;
 int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
 int Jumpmotion = 1;
-int Playerx = 0;
-int Playery = 0;
+int CPlayer::Playerx = 0;
+int CPlayer::Playery = 0;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
