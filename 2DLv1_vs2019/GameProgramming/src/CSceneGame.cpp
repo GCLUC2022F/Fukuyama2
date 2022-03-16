@@ -4,6 +4,8 @@
 #include "CBack.h"
 #include "CField.h"
 #include <stdio.h>
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 
 //Žc‚èŽžŠÔi30•bj
 int Time = 30 * 60;
@@ -17,16 +19,16 @@ void CSceneGame::Init() {
 	CBack *Back = new CBack();
 	Back->x = 0;
 	Back->y = 0;
-	Back->w = 960;
-	Back->h = 540;
+	Back->w = WINDOW_WIDTH / 2;
+	Back->h = WINDOW_HEIGHT / 2;
 	Back->mEnabled = true;
 
 	for (int f = 0; f < 2; f++) {
 	CField *Floor1 = new CField();
-	Floor1->x = 1920 * f;
+	Floor1->x = WINDOW_WIDTH * f;
 	Floor1->y = 0;
-	Floor1->w = 960;
-	Floor1->h = 540;
+	Floor1->w = WINDOW_WIDTH / 2;
+	Floor1->h = WINDOW_HEIGHT / 2;
 	Floor1->mEnabled = true;
 	}
 
