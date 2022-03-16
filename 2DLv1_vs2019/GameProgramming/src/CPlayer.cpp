@@ -112,7 +112,7 @@ void CPlayer::Update() {
 
 void CPlayer::DrawShadow() {
 	if (mEnabled == true) {
-		CRectangle::DrawShadow(Shadow, 5460, 6560, 3700, 1060);
+		CRectangle::DrawShadow(Shadow, 1260 - 100, 1260 + 100, 240 + 210, 240 - 210);
 	}
 }	
 
