@@ -48,7 +48,7 @@ void CSceneGame::Init() {
 		{ 0, 0, 0, 0, 0, 0, 0, 3 },
 		{ 0, 0, 0, 0, 0, 0, 3, 0 },
 		{ 0, 0, 0, 0, 0, 0, 4, 0 },
-		{ 0, 0, 0, 0, 0, 1, 4, 0 },
+		{ 0, 0, 0, 0, 0, 0, 4, 0 },
 	};
 //37	MapSize = 0;	//0‚ğ‘ã“ü‚·‚é
 	for (int j = 0; j < 6; j++) {
@@ -124,18 +124,18 @@ void CSceneGame::Update() {
 	//CText::DrawChar('r', 150 + 32 * 5, -250, 16, 16);
 
 	//•¶š—ñ‚Ì•`‰æ
-	CText::DrawString("Time", 150, 250, 16, 16);
-	if (Time > 0) {
-		Time--;
-	}
+	//CText::DrawString("Time", 150, 250, 16, 16);
+	//if (Time > 0) {
+	//	Time--;
+	//}
 	//®”‚ğ•¶š—ñ‚É•ÏŠ·‚·‚é
 	char buf[10];//9•¶š‚Ü‚ÅOK
-	sprintf(buf, "%d", Time / 60);
-	CText::DrawString(buf, 300, 250, 16, 16);
-
-	sprintf(buf, "%d", Remain);
-	CText::DrawString(buf, 150 + 32 * 7, -250, 16, 16);
-
+//	sprintf(buf, "%d", Time / 60);
+//	CText::DrawString(buf, 300, 250, 16, 16);
+//
+//	sprintf(buf, "%d", Remain);
+//	CText::DrawString(buf, 150 + 32 * 7, -250, 16, 16);
+//
 }
 
 

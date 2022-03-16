@@ -7,10 +7,10 @@ extern CTexture Texture;
 extern CTexture Shadow;
 extern CTexture Playergirljump1;
 int CPlayer::Gender = 1;
-bool Jump = false;
+bool JumpFlg = false;
 int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
-int Ju = 1;
+int Jumpmotion = 1;
 int Playerx = 0;
 int Playery = 0;
 
@@ -24,9 +24,9 @@ CPlayer::CPlayer()
 void CPlayer::Update() {
 	y = z + Jumph;
 
-	Ju = (INIT_JUMPCOUNT - Jumpcount) / 4;
-	if (Ju > 10) {
-		Ju = 10;
+	Jumpmotion = (INIT_JUMPCOUNT - Jumpcount) / 4;
+	if (Jumpmotion > 10) {
+		Jumpmotion = 10;
 	}
 
 	//staticƒƒ\ƒbƒh‚Í‚Ç‚±‚©‚ç‚Å‚àŒÄ‚×‚é
@@ -66,18 +66,18 @@ void CPlayer::Update() {
 	}
 
 	if (CKey::Once(' ')) {
-		if (Jump == false) {
-			Jump = true;
+		if (JumpFlg == false) {
+			JumpFlg = true;
 		}
 	}
 
-	if (Jump == true) {
+	if (JumpFlg == true) {
 		if (Jumpcount >= 0) {
 			Jumph += Jumpcount - (INIT_JUMPCOUNT / 2);
 			Jumpcount -= 1;
 			if (Jumpcount < 0) {
 				Jumpcount = INIT_JUMPCOUNT;		
-				Jump = false;
+				JumpFlg = false;
 			}
 		}
 	}
@@ -112,7 +112,12 @@ void CPlayer::Update() {
 
 void CPlayer::DrawShadow() {
 	if (mEnabled == true) {
-		CRectangle::DrawShadow(Shadow, 1260 - 100, 1260 + 100, 240 + 210, 240 - 210);
+		if (mFx >= 0) {
+			CRectangle::DrawShadow(Shadow, 1260 - 70, 1260 + 100, 240 + 210, 240 - 210);
+		}
+		else {
+			CRectangle::DrawShadow(Shadow, 1260 + 100, 1260 - 70, 240 + 210, 240 - 210);
+		}
 	}
 }	
 
@@ -124,8 +129,8 @@ void CPlayer::Render() {
 		else if (Gender == 2) {
 			CPlayer::DrawShadow();
 			if (mFx >= 0) {
-				if (Jump == true) {
-					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Ju % 5), 228 + 48 + 400 * (Ju % 5), 204 + 106 + 300 * (Ju / 5), 204 - 106 + 300 * (Ju / 5));
+				if (JumpFlg == true) {
+					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Jumpmotion % 5), 228 + 48 + 400 * (Jumpmotion % 5), 204 + 106 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
 				}
 				else {
 					CRectangle::Render(Playergirljump1, 228 - 48, 228 + 48, 204 + 116, 204 - 106);
@@ -133,8 +138,8 @@ void CPlayer::Render() {
 
 			}
 			else {
-				if (Jump == true) {
-					CRectangle::Render(Playergirljump1, 228 + 48 + 400 * (Ju % 5), 228 - 48 + 400 * (Ju % 5), 204 + 106 + 300 * (Ju / 5), 204 - 106 + 300 * (Ju / 5));
+				if (JumpFlg == true) {
+					CRectangle::Render(Playergirljump1, 228 + 48 + 400 * (Jumpmotion % 5), 228 - 48 + 400 * (Jumpmotion % 5), 204 + 106 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
 				}
 				else {
 					CRectangle::Render(Playergirljump1, 228 + 48, 228 - 48, 204 + 106, 204 - 106);
