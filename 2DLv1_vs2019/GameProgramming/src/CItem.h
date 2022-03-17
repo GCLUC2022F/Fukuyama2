@@ -4,7 +4,7 @@
 
 class CItem : public CRectangle {
 
-
+	int Itemno;
 
 	CItem();
 	void Update();
