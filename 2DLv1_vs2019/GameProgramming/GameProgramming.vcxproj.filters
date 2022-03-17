@@ -13,108 +13,126 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\Character">
+      <UniqueIdentifier>{64787366-a295-4e13-8a8a-d1ed5b06f809}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base">
+      <UniqueIdentifier>{27646975-ead1-4905-b0bb-89101df4581d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\他">
+      <UniqueIdentifier>{a7530e81-f5d2-4391-ac1b-6b24dbc7c4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Task">
+      <UniqueIdentifier>{10986eb8-413b-4cf9-a587-68d43d5e196c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Stage">
+      <UniqueIdentifier>{89e67f7b-cef4-437a-8220-12c6d7fb91c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Title・Game">
+      <UniqueIdentifier>{c8d5ab5e-09b4-46cc-83d5-1397c047f208}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CBullet.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\CEnemy.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CKey.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\CPlayer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CRectangle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CSceneGame.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CSceneManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CSceneTitle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CText.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CTexture.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Update.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CTask.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CTaskManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CField.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\CBack.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CField.cpp">
+      <Filter>ソース ファイル\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CKey.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CRectangle.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneManager.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CText.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CTexture.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Update.cpp">
+      <Filter>ソース ファイル\他</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CTask.cpp">
+      <Filter>ソース ファイル\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CTaskManager.cpp">
+      <Filter>ソース ファイル\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneGame.cpp">
+      <Filter>ソース ファイル\Title・Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneTitle.cpp">
+      <Filter>ソース ファイル\Title・Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBullet.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\CEnemy.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CKey.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CMap.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\CPlayer.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CRectangle.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CScene.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CSceneGame.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CSceneManager.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CSceneTitle.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CText.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CTexture.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Update.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CTask.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CTaskManager.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CField.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\CBack.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CField.h">
+      <Filter>ソース ファイル\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CKey.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CRectangle.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CScene.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CSceneManager.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CText.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTexture.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Update.h">
+      <Filter>ソース ファイル\他</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTask.h">
+      <Filter>ソース ファイル\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTaskManager.h">
+      <Filter>ソース ファイル\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CMap.h">
+      <Filter>ソース ファイル\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CSceneGame.h">
+      <Filter>ソース ファイル\Title・Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CSceneTitle.h">
+      <Filter>ソース ファイル\Title・Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
