@@ -9,7 +9,6 @@
 
 //c‚èŠÔi30•bj
 int Time = 30 * 60;
-int Remain = 3;
 
 
 void CSceneGame::Init() {

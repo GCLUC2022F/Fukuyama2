@@ -6,13 +6,15 @@
 extern CTexture Texture;
 extern CTexture Shadow;
 extern CTexture Playergirljump1;
+int CPlayer::PLife = PLAYER_LIFE;
+int CPlayer::PWeapon = 0;
 int CPlayer::Gender = 1;
+int CPlayer::Playerx = 0;
+int CPlayer::Playery = 0;
 bool JumpFlg = false;
 int Jumpcount = INIT_JUMPCOUNT;
 int Jumph = 0;
 int Jumpmotion = 1;
-int CPlayer::Playerx = 0;
-int CPlayer::Playery = 0;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
@@ -23,6 +25,13 @@ CPlayer::CPlayer()
 
 void CPlayer::Update() {
 	y = z + Jumph;
+
+	if (PLife < 0) {
+		PLife = 0;
+	}
+	if (PLife > 4) {
+		PLife = 4;
+	}
 
 	Jumpmotion = (INIT_JUMPCOUNT - Jumpcount) / 4;
 	if (Jumpmotion > 10) {
