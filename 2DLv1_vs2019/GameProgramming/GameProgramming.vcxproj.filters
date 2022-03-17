@@ -81,6 +81,9 @@
     <ClCompile Include="src\CSceneTitle.cpp">
       <Filter>ソース ファイル\Title・Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\CItem.cpp">
+      <Filter>ソース ファイル\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBullet.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="src\CSceneTitle.h">
       <Filter>ソース ファイル\Title・Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CItem.h">
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
