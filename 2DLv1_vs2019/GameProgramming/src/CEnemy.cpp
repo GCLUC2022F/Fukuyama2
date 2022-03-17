@@ -48,37 +48,19 @@ void CEnemy::Update() {
 	
 	x += mFx;
 	y += mFy;
-	
-    if (mFx==-1) {
-		Enemyx--;
-	}
-	if (mFx==1) {
-		Enemyx++;
-	}
+
 	
 
       Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
 		Enemyz = sqrt(Enemyz);
-		//if (Enemyz >0) {
-		//	EnemyFlg = false;
-		//}
 		if (Enemyz > 0) {
 			EnemyFlg = true;
-			if (Enemyz < 20) {
-				EnemyFlg = false;
-			}
 		}
 		if(EnemyFlg==false){
 			mFx = 1;
-			//if(Enemyx  < 0){
-			//EnemyFlg = true;
-			//}
 		}
 		if (EnemyFlg==true) {
 			mFx = -1;
-			//if (Enemyx > 0) {
-				//EnemyFlg = false;
-			//}
 		}
 		
 
