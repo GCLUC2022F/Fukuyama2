@@ -130,7 +130,7 @@ void CPlayer::Render() {
 			CPlayer::DrawShadow();
 			if (mFx >= 0) {
 				if (JumpFlg == true) {
-					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Jumpmotion % 5), 228 + 48 + 400 * (Jumpmotion % 5), 204 + 106 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
+					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Jumpmotion % 5), 228 + 48 + 400 * (Jumpmotion % 5), 204 + 116 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
 				}
 				else {
 					CRectangle::Render(Playergirljump1, 228 - 48, 228 + 48, 204 + 116, 204 - 106);
@@ -139,10 +139,10 @@ void CPlayer::Render() {
 			}
 			else {
 				if (JumpFlg == true) {
-					CRectangle::Render(Playergirljump1, 228 + 48 + 400 * (Jumpmotion % 5), 228 - 48 + 400 * (Jumpmotion % 5), 204 + 106 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
+					CRectangle::Render(Playergirljump1, 228 + 48 + 400 * (Jumpmotion % 5), 228 - 48 + 400 * (Jumpmotion % 5), 204 + 116 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
 				}
 				else {
-					CRectangle::Render(Playergirljump1, 228 + 48, 228 - 48, 204 + 106, 204 - 106);
+					CRectangle::Render(Playergirljump1, 228 + 48, 228 - 48, 204 + 116, 204 - 106);
 				}
 			}
 		}

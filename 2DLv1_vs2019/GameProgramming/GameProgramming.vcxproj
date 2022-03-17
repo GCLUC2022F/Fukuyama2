@@ -15,6 +15,7 @@
     <ClCompile Include="src\CBullet.cpp" />
     <ClCompile Include="src\CEnemy.cpp" />
     <ClCompile Include="src\CField.cpp" />
+    <ClCompile Include="src\CItem.cpp" />
     <ClCompile Include="src\CKey.cpp" />
     <ClCompile Include="src\CPlayer.cpp" />
     <ClCompile Include="src\CRectangle.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="src\CBullet.h" />
     <ClInclude Include="src\CEnemy.h" />
     <ClInclude Include="src\CField.h" />
+    <ClInclude Include="src\CItem.h" />
     <ClInclude Include="src\CKey.h" />
     <ClInclude Include="src\CMap.h" />
     <ClInclude Include="src\CPlayer.h" />
