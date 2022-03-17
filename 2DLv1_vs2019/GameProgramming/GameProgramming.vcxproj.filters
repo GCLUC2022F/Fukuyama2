@@ -16,9 +16,6 @@
     <Filter Include="ソース ファイル\Character">
       <UniqueIdentifier>{64787366-a295-4e13-8a8a-d1ed5b06f809}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{27646975-ead1-4905-b0bb-89101df4581d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\他">
       <UniqueIdentifier>{a7530e81-f5d2-4391-ac1b-6b24dbc7c4d5}</UniqueIdentifier>
     </Filter>
@@ -84,6 +81,9 @@
     <ClCompile Include="src\CItem.cpp">
       <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
+    <ClCompile Include="src\CBoss.cpp">
+      <Filter>ソース ファイル\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBullet.h">
@@ -138,6 +138,9 @@
       <Filter>ソース ファイル\Title・Game</Filter>
     </ClInclude>
     <ClInclude Include="src\CItem.h">
+      <Filter>ソース ファイル\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CBoss.h">
       <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
   </ItemGroup>
