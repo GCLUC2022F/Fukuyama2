@@ -67,12 +67,22 @@ void CEnemy::Update() {
 			mFx = -3;
 		}
 		
+<<<<<<< HEAD
 if (EnemytextuerCount > 0) {
 		EnemytextuerCount--;
 	}
 if (EnemytextuerCount == 0) {
 	EnemytextuerCount = 60;
    }
+=======
+		if (EnemytextuerCount > 0) {
+			EnemytextuerCount--;
+		}
+		if (EnemytextuerCount == 0) {
+			EnemytextuerCount = 60;
+		}
+   
+>>>>>>> c2febcd6274162a866e4cb4f7ab06120cef9b507
 }
 
 /*
@@ -107,10 +117,17 @@ bool CEnemy::Collision(const CRectangle &r) {
 void CEnemy::Render() {
 	
 	if (mEnabled) {
+<<<<<<< HEAD
 		if(EnemytextuerCount>50){
 			CRectangle::Render(ZakoEnemy, 103, 620, 577, 292);
 		}
 		if(EnemytextuerCount<48) {
+=======
+		if (EnemytextuerCount > 50) {
+			CRectangle::Render(ZakoEnemy, 103, 620, 577, 292);
+		}
+		if (EnemytextuerCount < 48) {
+>>>>>>> c2febcd6274162a866e4cb4f7ab06120cef9b507
 			CRectangle::Render(ZakoEnemy, 830, 1435, 581, 287);
 
 		}
