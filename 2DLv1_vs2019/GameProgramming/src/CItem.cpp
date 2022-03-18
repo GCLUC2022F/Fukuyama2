@@ -2,6 +2,7 @@
 #include "CPlayer.h"
 #include "CEnemy.h"
 #include "CField.h"
+extern CTexture Item1;
 
 CItem::CItem() {
 	mTag = EITEM;
@@ -50,6 +51,11 @@ void CItem::Collision(CRectangle* i, CRectangle* y)
 void CItem::Render()
 {
 	if (mEnabled) {
-
+		(Itemno == 1 ? CRectangle::Render(Item1, 265 - 170, 265 + 170, 300 + 117, 300 - 117) :
+			Itemno == 2 ? CRectangle::Render(Item1, 810 - 205, 810 + 205, 260 + 70, 260 - 70) :
+			Itemno == 3 ? CRectangle::Render(Item1, 250 - 155, 250 + 155, 735 + 145, 735 - 145) :
+			Itemno == 4 ? CRectangle::Render(Item1, 780 - 180, 780 + 180, 755 + 155, 755 - 155) :
+			Itemno == 5 ? CRectangle::Render(Item1, 1317 - 193, 1317 + 193, 720 + 120, 720 - 120) :
+			mEnabled = false);
 	}
 }
