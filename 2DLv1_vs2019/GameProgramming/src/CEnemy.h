@@ -12,6 +12,7 @@ public:
 	float mFy; //Y²•ûŒü‚ÌˆÚ“® -1:‰º 0:ˆÚ“®‚µ‚È‚¢ 1:ã‚ÖˆÚ“®
 	double Enemyz;
 	int EnemyFlg;
+	int EnemytextuerCount;
 	
 //	bool mEnabled;	//—LŒøƒtƒ‰ƒO
 
