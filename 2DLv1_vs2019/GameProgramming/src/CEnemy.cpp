@@ -110,7 +110,7 @@ void CEnemy::Render() {
 		if(EnemytextuerCount>50){
 			CRectangle::Render(ZakoEnemy, 103, 620, 577, 292);
 		}
-		if(EnemytextuerCount<49) {
+		if(EnemytextuerCount<48) {
 			CRectangle::Render(ZakoEnemy, 830, 1435, 581, 287);
 
 		}

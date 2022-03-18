@@ -14,7 +14,7 @@ public:
 	int EnemyFlg;
 	int EnemytextuerCount;
 	
-//	bool mEnabled;	//有効フラグ
+///	bool mEnabled;	//有効フラグ
 
 //37	CBullet EBullet[20];
 	int mFireCount;
