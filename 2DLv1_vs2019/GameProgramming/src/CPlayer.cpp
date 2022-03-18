@@ -8,19 +8,26 @@ extern CTexture Shadow;
 extern CTexture PlayerGirlJump1;
 int CPlayer::PLife = PLAYER_LIFE;
 int CPlayer::PWeapon = 0;
-int CPlayer::Gender = 1;
+int CPlayer::Gender = 1;	//基本の性別は男
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
-bool JumpFlg = false;
+int MoveCount = 0;
 int JumpCount = INIT_JUMPCOUNT;
 int Jumph = 0;
-int JumpMotion = 1;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
 , FireCount(0)
 {
+	MoveFlg = false;
+	JumpFlg = false;
+	AttackFlg = false;
+
 	mTag = EPLAYER;
+	StayMotion = 1;
+	MoveMotion = 1;
+	AttackMotion = 1;
+	JumpMotion = 1;
 }
 
 void CPlayer::Update() {
@@ -72,6 +79,16 @@ void CPlayer::Update() {
 		if (z - h < -540) {
 			z = -540 + h;
 		}
+	}
+
+	if ((CKey::Push('W') || CKey::Push('A') || CKey::Push('S') || CKey::Push('D')) &&
+		!(CKey::Push('W') && CKey::Push('A') && CKey::Push('S') && CKey::Push('D')) &&
+		!(CKey::Push('W') && CKey::Push('S') && !CKey::Push('A') && !CKey::Push('D')) &&
+		!(!CKey::Push('W') && !CKey::Push('S') && CKey::Push('A') && CKey::Push('D'))) {
+		MoveFlg = true;
+	}
+	else {
+		MoveFlg = false;
 	}
 
 	if (CKey::Once(' ')) {
@@ -136,16 +153,48 @@ void CPlayer::Render() {
 		if (Gender == 1) {
 			if (mFx >= 0) {
 				if (JumpFlg == true) {
-				
+					//正ジャンプ
+					(PWeapon == 0 ? CRectangle::Render(PlayerGirlJump1,
+						228 - 48 + 400 * (JumpMotion % 5), 228 + 48 + 400 * (JumpMotion % 5),
+						209 + 111 + 300 * (JumpMotion / 5), 209 - 111 + 300 * (JumpMotion / 5)) :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
 				}
-				//if((CKey::))
+				else if (CKey::Push('J')) {
+					//正攻撃
+					(PWeapon == 0 ? mEnabled = false :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
 
+				}
+				else if (MoveFlg == true) {
+					//正移動
+					(PWeapon == 0 ? mEnabled = false :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
+
+				}
+				else {
+					//正待機
+					(PWeapon == 0 ? CRectangle::Render(PlayerGirlJump1, 228 - 48, 228 + 48, 209 + 111, 209 - 111) :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
+				}
 			}
 			else {
-
-
-
-
+				if (JumpFlg == true) {
+					//逆ジャンプ
+				}
+				else if (MoveFlg == true) {
+					//逆移動
+				}
+				else {
+					//逆待機
+				}
 			}
 		}
 		else if (Gender == 2) {

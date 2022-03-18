@@ -24,8 +24,17 @@ public:
 	void Collision(CRectangle *i, CRectangle *y);
 
 private:
+	bool MoveFlg;
+	bool AttackFlg;
+	bool JumpFlg;
+
 	int mFx, mFy;
 	int FireCount;
+
+	int StayMotion;
+	int MoveMotion;
+	int AttackMotion;
+	int JumpMotion;
 	//36
 };
 
