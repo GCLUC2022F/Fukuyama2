@@ -12,10 +12,11 @@ CEnemy::CEnemy()
 	//37
 //	mEnabled = true;
 	mTag = EENEMY;
+	x = 350;
+	y = 100;
 	w = 50;
 	h = 50;
-	Enemyx = 0;
-    Enemyy = 0;
+	
 	Enemyz = 0;
 	EnemyFlg = true;
 }
@@ -49,33 +50,20 @@ void CEnemy::Update() {
 	x += mFx;
 	y += mFy;
 	
-    if (mFx==-1) {
-		Enemyx--;
-	}
-	if (mFx==1) {
-		Enemyx++;
-	}
-	
 
-      Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
+      Enemyz = pow(CPlayer::Playerx - x, 2) + pow(CPlayer::Playery - y, 2);
 		Enemyz = sqrt(Enemyz);
-		if (Enemyz <0) {
+		if (Enemyz >700) {
 			EnemyFlg = false;
 		}
-		if (Enemyz > 0) {
+        if (Enemyz < 350) {
 			EnemyFlg = true;
 		}
-		if(EnemyFlg==false){
-			mFx = -1;
-			//if(Enemyx  < 0){
-			//EnemyFlg = true;
-			//}
-		}
-		if (EnemyFlg==true) {
+		if(EnemyFlg==true){
 			mFx = 1;
-			//if (Enemyx > 0) {
-				//EnemyFlg = false;
-			//}
+		}
+		if (EnemyFlg==false) {
+			mFx = -1;
 		}
 		
 
@@ -112,7 +100,7 @@ bool CEnemy::Collision(const CRectangle &r) {
 
 void CEnemy::Render() {
 	if (mEnabled) {
-		CRectangle::Render(Texture, 146 - 16, 146 + 16, 178 + 16, 178 - 16);
+		CRectangle::Render(Texture, 146 - 16, 146 + 16, 178 + 16, 178 - 16); //Enemy1, 102 - 350, 102 + 350, 290 + 100, 290 - 100
 	}
 	
 }

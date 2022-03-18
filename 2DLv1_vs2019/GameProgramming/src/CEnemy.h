@@ -10,11 +10,8 @@ class CEnemy : public CRectangle {
 public:
 	float mFx; //X軸方向の移動 -1:左 0:移動しない 1:右へ移動
 	float mFy; //Y軸方向の移動 -1:下 0:移動しない 1:上へ移動
-	int Enemyx;
-	int Enemyy;
-	int Enemyz;
+	double Enemyz;
 	int EnemyFlg;
-	int Flg;
 	
 //	bool mEnabled;	//有効フラグ
 
