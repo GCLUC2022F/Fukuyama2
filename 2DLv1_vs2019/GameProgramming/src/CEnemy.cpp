@@ -7,7 +7,7 @@ extern CTexture Texture;
 //CBullet CEnemy::EBullet[20];
 
 CEnemy::CEnemy()
-: mFx(0.0f), mFy(0.0f), mFireCount(60)
+: mFx(0.0f), mFy(0.0f), mFireCount(60),EnemytextuerCount(60)
 {
 	//37
 //	mEnabled = true;
@@ -66,7 +66,12 @@ void CEnemy::Update() {
 			mFx = -1;
 		}
 		
-
+		if (EnemytextuerCount > 0) {
+			EnemytextuerCount--;
+		}
+		if (EnemytextuerCount == 0) {
+			EnemytextuerCount = 60;
+		}
    
 }
 
@@ -100,7 +105,14 @@ bool CEnemy::Collision(const CRectangle &r) {
 
 void CEnemy::Render() {
 	if (mEnabled) {
-		CRectangle::Render(Texture, 146 - 16, 146 + 16, 178 + 16, 178 - 16); //Enemy1, 102 - 350, 102 + 350, 290 + 100, 290 - 100
+		if (EnemytextuerCount > 50) {
+			CRectangle::Render(ZakoEnemy, 103, 620, 577, 292);
+		}
+		if (EnemytextuerCount < 48) {
+			CRectangle::Render(ZakoEnemy, 830, 1435, 581, 287);
+
+		}
+
 	}
 	
 }
