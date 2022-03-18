@@ -13,7 +13,9 @@ CTexture Texture; //マップの画像
 CTexture Stageback1;
 CTexture Stagefloor1;
 CTexture Shadow;
-CTexture Playergirljump1;
+
+CTexture PlayerGirlJump1;
+CTexture Item1;
 //シーンマネージャのインスタンス
 CSceneManager SceneManager;
 
@@ -24,7 +26,8 @@ void Init() {
 	Stagefloor1.Load("res\\学校床.png");
 	Stageback1.Load("res\\学校背景.png");
 	Shadow.Load("res\\影.png");
-	Playergirljump1.Load("res\\Girljump1.png");
+	PlayerGirlJump1.Load("res\\女プレイヤージャンプ1.png");
+	Item1.Load("res\\アイテム現代.png");
 	//文字画像の読み込み
 	CText::mFont.Load("res\\font.tga");
 	//シーンマネージャの初期化

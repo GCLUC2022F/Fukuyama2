@@ -5,16 +5,16 @@
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 extern CTexture Shadow;
-extern CTexture Playergirljump1;
+extern CTexture PlayerGirlJump1;
 int CPlayer::PLife = PLAYER_LIFE;
 int CPlayer::PWeapon = 0;
 int CPlayer::Gender = 1;
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
 bool JumpFlg = false;
-int Jumpcount = INIT_JUMPCOUNT;
+int JumpCount = INIT_JUMPCOUNT;
 int Jumph = 0;
-int Jumpmotion = 1;
+int JumpMotion = 1;
 
 CPlayer::CPlayer()
 : mFx(1.0f), mFy(0.0f)
@@ -24,6 +24,10 @@ CPlayer::CPlayer()
 }
 
 void CPlayer::Update() {
+	Playerx = x;
+	Playery = z;
+
+
 	y = z + Jumph;
 
 	if (PLife < 0) {
@@ -33,9 +37,9 @@ void CPlayer::Update() {
 		PLife = 4;
 	}
 
-	Jumpmotion = (INIT_JUMPCOUNT - Jumpcount) / 4;
-	if (Jumpmotion > 10) {
-		Jumpmotion = 10;
+	JumpMotion = (INIT_JUMPCOUNT - JumpCount) / 4;
+	if (JumpMotion > 10) {
+		JumpMotion = 10;
 	}
 
 	//staticメソッドはどこからでも呼べる
@@ -81,11 +85,11 @@ void CPlayer::Update() {
 	}
 
 	if (JumpFlg == true) {
-		if (Jumpcount >= 0) {
-			Jumph += Jumpcount - (INIT_JUMPCOUNT / 2);
-			Jumpcount -= 1;
-			if (Jumpcount < 0) {
-				Jumpcount = INIT_JUMPCOUNT;		
+		if (JumpCount >= 0) {
+			Jumph += JumpCount - (INIT_JUMPCOUNT / 2);
+			JumpCount -= 1;
+			if (JumpCount < 0) {
+				JumpCount = INIT_JUMPCOUNT;		
 				JumpFlg = false;
 			}
 		}
@@ -139,19 +143,19 @@ void CPlayer::Render() {
 			CPlayer::DrawShadow();
 			if (mFx >= 0) {
 				if (JumpFlg == true) {
-					CRectangle::Render(Playergirljump1, 228 - 48 + 400 * (Jumpmotion % 5), 228 + 48 + 400 * (Jumpmotion % 5), 204 + 116 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
+					CRectangle::Render(PlayerGirlJump1, 228 - 48 + 400 * (JumpMotion % 5), 228 + 48 + 400 * (JumpMotion % 5), 204 + 116 + 300 * (JumpMotion / 5), 204 - 106 + 300 * (JumpMotion / 5));
 				}
 				else {
-					CRectangle::Render(Playergirljump1, 228 - 48, 228 + 48, 204 + 116, 204 - 106);
+					CRectangle::Render(PlayerGirlJump1, 228 - 48, 228 + 48, 204 + 116, 204 - 106);
 				}
 
 			}
 			else {
 				if (JumpFlg == true) {
-					CRectangle::Render(Playergirljump1, 228 + 48 + 400 * (Jumpmotion % 5), 228 - 48 + 400 * (Jumpmotion % 5), 204 + 116 + 300 * (Jumpmotion / 5), 204 - 106 + 300 * (Jumpmotion / 5));
+					CRectangle::Render(PlayerGirlJump1, 228 + 48 + 400 * (JumpMotion % 5), 228 - 48 + 400 * (JumpMotion % 5), 204 + 116 + 300 * (JumpMotion / 5), 204 - 106 + 300 * (JumpMotion / 5));
 				}
 				else {
-					CRectangle::Render(Playergirljump1, 228 + 48, 228 - 48, 204 + 116, 204 - 106);
+					CRectangle::Render(PlayerGirlJump1, 228 + 48, 228 - 48, 204 + 116, 204 - 106);
 				}
 			}
 		}
