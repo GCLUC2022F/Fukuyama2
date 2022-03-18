@@ -53,13 +53,16 @@ void CEnemy::Update() {
 
       Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
 		Enemyz = sqrt(Enemyz);
-		if (Enemyz > 0) {
+		if (Enemyz >700) {
+			EnemyFlg = false;
+		}
+        if (Enemyz < 350) {
 			EnemyFlg = true;
 		}
-		if(EnemyFlg==false){
+		if(EnemyFlg==true){
 			mFx = 1;
 		}
-		if (EnemyFlg==true) {
+		if (EnemyFlg==false) {
 			mFx = -1;
 		}
 		
