@@ -47,12 +47,6 @@ void CEnemy::Update() {
 	
 	x += mFx;
 	y += mFy;
-	for (int j = 0; j < 6; j++) {
-		for (int i = 0; i < 8; i++) {
-			Enemyx =  - 350;
-			Enemyy =  250;
-		}
-	}
 	
 
       Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
