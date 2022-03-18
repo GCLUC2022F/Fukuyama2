@@ -37,8 +37,6 @@ void CSceneGame::Init() {
 	CPlayer *Player = new CPlayer();
 	Player->x = -350;
 	Player->z = -100;
-	Player->Playerx = Player->x;
-	Player->Playery = Player->y;
 	Player->w = INIT_PLAYERW;
 	Player->h = INIT_PLAYERH;
 	Player->mEnabled = true;
@@ -75,8 +73,6 @@ void CSceneGame::Init() {
 				//‰E‚ÖˆÚ“®
 				Enemy->mFx = -1;
 				Enemy->mFy = 0;
-				Enemy->Enemyx = i * -100 - 350;
-				Enemy->Enemyy = j * -100 + 250;
 			}
 			else if (map[j][i] == 3) {
 				CEnemy* Enemy = new CEnemy();
@@ -86,8 +82,6 @@ void CSceneGame::Init() {
 				//‰E‚ÖˆÚ“®
 				Enemy->mFx = -1;
 				Enemy->mFy = -1;
-				Enemy->Enemyx = i * -100 - 350;
-				Enemy->Enemyy = j * -100 + 250;
 			}
 			else if (map[j][i] == 4) {
 				CEnemy* Enemy = new CEnemy();
@@ -97,8 +91,6 @@ void CSceneGame::Init() {
 				//‰E‚ÖˆÚ“®
 				Enemy->mFx = 1;
 				Enemy->mFy = 0;
-				Enemy->Enemyx = i * -100 - 350;
-				Enemy->Enemyy = j * -100 + 250;
 			}
 		}
 	}

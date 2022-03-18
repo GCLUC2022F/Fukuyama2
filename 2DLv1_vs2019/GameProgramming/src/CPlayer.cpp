@@ -46,7 +46,6 @@ void CPlayer::Update() {
 	if (CKey::Push('A')) {
 		x -= 3;
 		mFx = -1;
-        Playerx = -1;
 		mFy = 0;
 		if (x - w < -960) {
 			x = -960 + w;
@@ -55,7 +54,6 @@ void CPlayer::Update() {
 	if (CKey::Push('D')) {
 		x += 3;
 		mFx = 1;
-		Playerx = 1;
 		mFy = 0;
 		if (x + w > 960) {
 			x = 960 - w;
@@ -64,7 +62,6 @@ void CPlayer::Update() {
 	if (CKey::Push('W')) {
 		z += 3;
 		mFy = 1;
-		Playery = 1;
 		if (z + h > 250) {
 			z = 250 - h;
 		}
@@ -72,7 +69,6 @@ void CPlayer::Update() {
 	if (CKey::Push('S')) {
 		z -= 3;
 		mFy = -1;
-		Playery = -1;
 		if (z - h < -540) {
 			z = -540 + h;
 		}
