@@ -135,27 +135,39 @@ void CPlayer::DrawShadow() {
 }	
 
 void CPlayer::Render() {
-	if (mEnabled == true) {
+	if (mEnabled == true) {	
+		CPlayer::DrawShadow();
 		if (Gender == 1) {
-
-		}
-		else if (Gender == 2) {
-			CPlayer::DrawShadow();
 			if (mFx >= 0) {
 				if (JumpFlg == true) {
-					CRectangle::Render(PlayerGirlJump1, 228 - 48 + 400 * (JumpMotion % 5), 228 + 48 + 400 * (JumpMotion % 5), 204 + 116 + 300 * (JumpMotion / 5), 204 - 106 + 300 * (JumpMotion / 5));
+				
+				}
+				//if((CKey::))
+
+			}
+			else {
+
+
+
+
+			}
+		}
+		else if (Gender == 2) {
+			if (mFx >= 0) {
+				if (JumpFlg == true) {
+					CRectangle::Render(PlayerGirlJump1, 228 - 48 + 400 * (JumpMotion % 5), 228 + 48 + 400 * (JumpMotion % 5), 209 + 111 + 300 * (JumpMotion / 5), 209 - 111 + 300 * (JumpMotion / 5));
 				}
 				else {
-					CRectangle::Render(PlayerGirlJump1, 228 - 48, 228 + 48, 204 + 116, 204 - 106);
+					CRectangle::Render(PlayerGirlJump1, 228 - 48, 228 + 48, 209 + 111, 209 - 111);
 				}
 
 			}
 			else {
 				if (JumpFlg == true) {
-					CRectangle::Render(PlayerGirlJump1, 228 + 48 + 400 * (JumpMotion % 5), 228 - 48 + 400 * (JumpMotion % 5), 204 + 116 + 300 * (JumpMotion / 5), 204 - 106 + 300 * (JumpMotion / 5));
+					CRectangle::Render(PlayerGirlJump1, 228 + 48 + 400 * (JumpMotion % 5), 228 - 48 + 400 * (JumpMotion % 5), 209 + 111 + 300 * (JumpMotion / 5), 209 - 111 + 300 * (JumpMotion / 5));
 				}
 				else {
-					CRectangle::Render(PlayerGirlJump1, 228 + 48, 228 - 48, 204 + 116, 204 - 106);
+					CRectangle::Render(PlayerGirlJump1, 228 + 48, 228 - 48, 209 + 111, 209 - 111);
 				}
 			}
 		}
