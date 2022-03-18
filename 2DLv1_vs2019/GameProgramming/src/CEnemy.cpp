@@ -12,6 +12,8 @@ CEnemy::CEnemy()
 	//37
 //	mEnabled = true;
 	mTag = EENEMY;
+	x = 350;
+	y = 100;
 	w = 50;
 	h = 50;
 	
@@ -49,7 +51,7 @@ void CEnemy::Update() {
 	y += mFy;
 	
 
-      Enemyz = pow(CPlayer::Playerx - Enemyx, 2) + pow(CPlayer::Playery - Enemyy, 2);
+      Enemyz = pow(CPlayer::Playerx - x, 2) + pow(CPlayer::Playery - y, 2);
 		Enemyz = sqrt(Enemyz);
 		if (Enemyz >700) {
 			EnemyFlg = false;
