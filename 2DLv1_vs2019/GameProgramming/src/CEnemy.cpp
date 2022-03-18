@@ -4,21 +4,22 @@
 
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
+extern CTexture ZakoEnemy;
 //CBullet CEnemy::EBullet[20];
 
 CEnemy::CEnemy()
-: mFx(0.0f), mFy(0.0f), mFireCount(60)
+: mFx(0.0f), mFy(0.0f), mFireCount(60),EnemytextuerCount(60)
 {
 	//37
 //	mEnabled = true;
 	mTag = EENEMY;
 	x = 350;
 	y = 100;
-	w = 50;
-	h = 50;
-	
+	w = 100;
+	h = 75;
 	Enemyz = 0;
 	EnemyFlg = true;
+	EnemytextuerFlg = true;
 }
 
 void CEnemy::Update() {
@@ -56,18 +57,22 @@ void CEnemy::Update() {
 		if (Enemyz >700) {
 			EnemyFlg = false;
 		}
-        if (Enemyz < 350) {
+        if (Enemyz < 250) {
 			EnemyFlg = true;
 		}
 		if(EnemyFlg==true){
 			mFx = 1;
 		}
 		if (EnemyFlg==false) {
-			mFx = -1;
+			mFx = -3;
 		}
 		
-
-   
+if (EnemytextuerCount > 0) {
+		EnemytextuerCount--;
+	}
+if (EnemytextuerCount == 0) {
+	EnemytextuerCount = 60;
+   }
 }
 
 /*
@@ -96,12 +101,22 @@ bool CEnemy::Collision(const CRectangle &r) {
 		return true;
 	}
 	return false;
+	
 }
 
 void CEnemy::Render() {
+	
 	if (mEnabled) {
-		CRectangle::Render(Texture, 146 - 16, 146 + 16, 178 + 16, 178 - 16); //Enemy1, 102 - 350, 102 + 350, 290 + 100, 290 - 100
+		if(EnemytextuerCount>50){
+			CRectangle::Render(ZakoEnemy, 103, 620, 577, 292);
+		}
+		if(EnemytextuerCount<49) {
+			CRectangle::Render(ZakoEnemy, 830, 1435, 581, 287);
+
+		}
+
 	}
+	
 	
 }
 
