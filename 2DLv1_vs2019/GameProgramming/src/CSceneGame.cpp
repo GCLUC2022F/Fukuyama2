@@ -117,10 +117,10 @@ void CSceneGame::Update() {
 	//CText::DrawChar('r', 150 + 32 * 5, -250, 16, 16);
 
 	//•¶š—ñ‚Ì•`‰æ
-	//CText::DrawString("Time", 150, 250, 16, 16);
-	//if (Time > 0) {
-	//	Time--;
-	//}
+	CText::DrawString("Time", 150, 250, 16, 16);
+	if (Time > 0) {
+		Time--;
+	}
 	//®”‚ğ•¶š—ñ‚É•ÏŠ·‚·‚é
 	char buf[10];//9•¶š‚Ü‚ÅOK
 //	sprintf(buf, "%d", Time / 60);
