@@ -61,6 +61,7 @@ void CEnemy::Update() {
 		}
 		if(EnemyFlg==true){
 			mFx = 1;
+
 		}
 		if (EnemyFlg==false) {
 			mFx = -3;

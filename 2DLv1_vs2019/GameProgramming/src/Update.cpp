@@ -40,12 +40,27 @@ void Init() {
 	Texture.Load("res\\Image.tga");
 	Stagefloor1.Load("res\\学校床.png");
 	Stageback1.Load("res\\学校背景.png");
+
 	Shadow.Load("res\\影.png");
+
+	//PlayerBoyStay0.Load("res\\.png");
+	//PlayerBoyStay1.Load("res\\.png");
+	//PlayerBoyStay2.Load("res\\.png");
+	//PlayerBoyAttack0.Load("res\\.png");
+	//PlayerBoyAttack1.Load("res\\.png");
+	//PlayerBoyAttack2.Load("res\\.png");
+	//PlayerBoyJump0.Load("res\\.png");
+	//PlayerBoyJump1.Load("res\\.png");
+	//PlayerBoyJump2.Load("res\\.png");
+	//PlayerBoyMove0.Load("res\\.png");
+	//PlayerBoyMove1.Load("res\\.png");
+	//PlayerBoyMove2.Load("res\\.png");
+
 	PlayerGirlJump0.Load("res\\女プレイヤージャンプ1.png");
 	Item1.Load("res\\アイテム現代.png");
 	ZakoEnemy.Load("res\\雑魚１-１.png");
 	//文字画像の読み込み
-	CText::mFont.Load("res\\font.png");
+	CText::mFont.Load("res\\Cfont.png");
 	//シーンマネージャの初期化
 	SceneManager.Init();
 }
