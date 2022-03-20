@@ -43,12 +43,12 @@ void Init() {
 
 	Shadow.Load("res\\影.png");
 
-	//PlayerBoyStay0.Load("res\\.png");
+	PlayerBoyStay0.Load("res\\男プレイヤー.png");
 	//PlayerBoyStay1.Load("res\\.png");
-	//PlayerBoyStay2.Load("res\\.png");
-	//PlayerBoyAttack0.Load("res\\.png");
+	PlayerBoyStay2.Load("res\\男プレイヤーアサルト.png");
+	PlayerBoyAttack0.Load("res\\男プレイヤーパンチ.png");
 	//PlayerBoyAttack1.Load("res\\.png");
-	//PlayerBoyAttack2.Load("res\\.png");
+	PlayerBoyAttack2.Load("res\\男プレイヤーアサルト.png");
 	//PlayerBoyJump0.Load("res\\.png");
 	//PlayerBoyJump1.Load("res\\.png");
 	//PlayerBoyJump2.Load("res\\.png");
