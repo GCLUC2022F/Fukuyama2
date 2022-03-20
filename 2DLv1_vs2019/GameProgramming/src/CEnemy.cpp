@@ -8,7 +8,7 @@ extern CTexture ZakoEnemy;
 //CBullet CEnemy::EBullet[20];
 
 CEnemy::CEnemy()
-: mFx(0.0f), mFy(0.0f), mFireCount(60),EnemytextuerCount(60)
+: mFx(0.0f), mFy(0.0f), mFireCount(60),EnemytextuerCount(100)
 {
 	//37
 //	mEnabled = true;
@@ -61,6 +61,7 @@ void CEnemy::Update() {
 		}
 		if(EnemyFlg==true){
 			mFx = 1;
+
 		}
 		if (EnemyFlg==false) {
 			mFx = -3;
@@ -71,7 +72,7 @@ if (EnemytextuerCount > 0) {
 		EnemytextuerCount--;
 	}
 if (EnemytextuerCount == 0) {
-	EnemytextuerCount = 60;
+	EnemytextuerCount = 100;
    }
 
 }
@@ -109,14 +110,36 @@ void CEnemy::Render() {
 	
 	if (mEnabled) {
 
-		if(EnemytextuerCount>50){
-			CRectangle::Render(ZakoEnemy, 103, 620, 577, 292);
+		if(EnemytextuerCount >= 90 ){
+			CRectangle::Render(ZakoEnemy, 123, 123+515, 577, 292);
 		}	
-		if (EnemytextuerCount < 48) {
-			CRectangle::Render(ZakoEnemy, 830, 1435, 581, 287);
-
+		if (EnemytextuerCount>=80 && EnemytextuerCount <= 90) {
+			CRectangle::Render(ZakoEnemy, 826, 1345, 581, 287);
 		}
-
+		if (EnemytextuerCount>=70 && EnemytextuerCount <= 80) {
+			CRectangle::Render(ZakoEnemy, 1550, 2070, 581, 287);
+		}
+		if (EnemytextuerCount >= 60 && EnemytextuerCount <= 70) {
+			CRectangle::Render(ZakoEnemy, 2275, 2793, 581, 287);
+		}
+		if (EnemytextuerCount >= 50 && EnemytextuerCount <= 60) {
+			CRectangle::Render(ZakoEnemy,3000, 3515, 581, 287);
+		}
+		if (EnemytextuerCount >= 40 && EnemytextuerCount <= 50) {
+			CRectangle::Render(ZakoEnemy, 102, 619, 1156, 875);
+		}
+		if (EnemytextuerCount >= 30 && EnemytextuerCount <= 40) {
+			CRectangle::Render(ZakoEnemy, 828, 1345, 1156, 875);
+		}
+		if (EnemytextuerCount >= 20 && EnemytextuerCount <= 30) {
+			CRectangle::Render(ZakoEnemy, 1548, 2069, 1156, 875);
+		}
+		if (EnemytextuerCount >= 10 && EnemytextuerCount <= 20) {
+			CRectangle::Render(ZakoEnemy, 2278, 2791, 1156, 875);
+		}
+		if (EnemytextuerCount >= 0 && EnemytextuerCount <= 10) {
+			CRectangle::Render(ZakoEnemy, 3000, 3515, 1156, 875);
+		}
 	}
 	
 	
