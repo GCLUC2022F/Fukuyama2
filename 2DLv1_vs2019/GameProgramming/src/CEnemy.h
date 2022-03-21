@@ -13,7 +13,7 @@ public:
 	double Enemyz;
 	int EnemyFlg;
 	int EnemytextuerCount;
-	
+	int AtackCount;
 ///	bool mEnabled;	//—LŒøƒtƒ‰ƒO
 
 //37	CBullet EBullet[20];

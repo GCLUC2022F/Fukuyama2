@@ -5,13 +5,14 @@
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 extern CTexture ZakoEnemy;
+extern CTexture ZakoAtack;
 //CBullet CEnemy::EBullet[20];
 
 CEnemy::CEnemy()
-: mFx(0.0f), mFy(0.0f), mFireCount(60),EnemytextuerCount(100)
+: mFx(0.0f), mFy(0.0f), mFireCount(60),EnemytextuerCount(100),AtackCount(60)
 {
 	//37
-//	mEnabled = true;
+	//mEnabled =true;
 	mTag = EENEMY;
 	x = 350;
 	y = 100;
@@ -61,12 +62,16 @@ void CEnemy::Update() {
 		}
 		if(EnemyFlg==true){
 			mFx = 1;
-
 		}
 		if (EnemyFlg==false) {
 			mFx = -3;
 		}
-		
+		if (AtackCount > 0) {
+				AtackCount--;
+			}
+			if (AtackCount == 0) {
+				AtackCount = 60;
+			}
 
 if (EnemytextuerCount > 0) {
 		EnemytextuerCount--;
@@ -97,52 +102,70 @@ bool CEnemy::Collision(const CRectangle &r) {
 			mEnabled = false;
 			break;
 		case EPLAYER:
-			mEnabled = false;
+			mEnabled = true;	
 			break;
 		}
 		return true;
+	
 	}
 	return false;
-	
 }
 
 void CEnemy::Render() {
-	
-	if (mEnabled) {
 
-		if(EnemytextuerCount >= 90 ){
-			CRectangle::Render(ZakoEnemy, 123, 123+515, 577, 292);
-		}	
-		if (EnemytextuerCount>=80 && EnemytextuerCount <= 90) {
-			CRectangle::Render(ZakoEnemy, 826, 1345, 581, 287);
-		}
-		if (EnemytextuerCount>=70 && EnemytextuerCount <= 80) {
-			CRectangle::Render(ZakoEnemy, 1550, 2070, 581, 287);
-		}
-		if (EnemytextuerCount >= 60 && EnemytextuerCount <= 70) {
-			CRectangle::Render(ZakoEnemy, 2275, 2793, 581, 287);
-		}
-		if (EnemytextuerCount >= 50 && EnemytextuerCount <= 60) {
-			CRectangle::Render(ZakoEnemy,3000, 3515, 581, 287);
-		}
-		if (EnemytextuerCount >= 40 && EnemytextuerCount <= 50) {
-			CRectangle::Render(ZakoEnemy, 102, 619, 1156, 875);
-		}
-		if (EnemytextuerCount >= 30 && EnemytextuerCount <= 40) {
-			CRectangle::Render(ZakoEnemy, 828, 1345, 1156, 875);
-		}
-		if (EnemytextuerCount >= 20 && EnemytextuerCount <= 30) {
-			CRectangle::Render(ZakoEnemy, 1548, 2069, 1156, 875);
-		}
-		if (EnemytextuerCount >= 10 && EnemytextuerCount <= 20) {
-			CRectangle::Render(ZakoEnemy, 2278, 2791, 1156, 875);
-		}
-		if (EnemytextuerCount >= 0 && EnemytextuerCount <= 10) {
-			CRectangle::Render(ZakoEnemy, 3000, 3515, 1156, 875);
-		}
-	}
-	
-	
+	    if (EnemyFlg==true) {
+		   if (EnemytextuerCount >= 90) {
+		    	CRectangle::Render(ZakoEnemy, 123, 123 + 515, 577, 292);
+		   }
+		   if (EnemytextuerCount >= 80 && EnemytextuerCount <= 90) {
+			    CRectangle::Render(ZakoEnemy, 826, 1345, 581, 287);
+		   }
+		   if (EnemytextuerCount >= 70 && EnemytextuerCount <= 80) {
+			    CRectangle::Render(ZakoEnemy, 1550, 2070, 581, 287);
+		   }
+		   if (EnemytextuerCount >= 60 && EnemytextuerCount <= 70) {
+			    CRectangle::Render(ZakoEnemy, 2275, 2793, 581, 287);
+		   }
+		   if (EnemytextuerCount >= 50 && EnemytextuerCount <= 60) {
+			    CRectangle::Render(ZakoEnemy, 3000, 3515, 581, 287);
+		   }
+		   if (EnemytextuerCount >= 40 && EnemytextuerCount <= 50) {
+			    CRectangle::Render(ZakoEnemy, 102, 619, 1156, 875);
+		   }
+		   if (EnemytextuerCount >= 30 && EnemytextuerCount <= 40) {
+			    CRectangle::Render(ZakoEnemy, 828, 1345, 1156, 875);
+		   }
+		   if (EnemytextuerCount >= 20 && EnemytextuerCount <= 30) {
+			    CRectangle::Render(ZakoEnemy, 1548, 2069, 1156, 875);
+		   }
+		   if (EnemytextuerCount >= 10 && EnemytextuerCount <= 20) {
+		    	CRectangle::Render(ZakoEnemy, 2278, 2791, 1156, 875);
+		   }
+		   if (EnemytextuerCount >= 0 && EnemytextuerCount <= 10) {
+			    CRectangle::Render(ZakoEnemy, 3000, 3515, 1156, 875);
+		   }
+		   
+	    }
+	if (EnemyFlg == false) {
+			   if (EnemytextuerCount >= 50) {
+				   CRectangle::Render(ZakoAtack, 1553, 1553+515, 577, 309);
+			   }
+			   if (EnemytextuerCount >= 40 && EnemytextuerCount <= 50) {
+				   CRectangle::Render(ZakoAtack, 2276, 2276+515, 577,309);
+			   }
+			   if (EnemytextuerCount >= 30 && EnemytextuerCount <= 40) {
+				   CRectangle::Render(ZakoAtack, 2276, 2276 + 515, 577, 309);
+			   }
+			   if (EnemytextuerCount >= 20 && EnemytextuerCount <= 30) {
+				   CRectangle::Render(ZakoAtack, 2970, 3517, 577, 309);
+			   }
+			   if (EnemytextuerCount >= 10 && EnemytextuerCount <= 20) {
+				   CRectangle::Render(ZakoAtack, 103, 103+548, 1157, 884);
+			   }
+			   if (EnemytextuerCount >= 0 && EnemytextuerCount <= 10) {
+				   CRectangle::Render(ZakoAtack,827,827+548 ,1157,884);
+			   }
+		   }
 }
 
 //36
