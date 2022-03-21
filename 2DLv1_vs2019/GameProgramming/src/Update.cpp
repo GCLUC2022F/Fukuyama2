@@ -32,6 +32,8 @@ CTexture PlayerGirlJump0;
 CTexture Item1;
 
 CTexture ZakoEnemy;
+CTexture ZakoAtack;
+
 //シーンマネージャのインスタンス
 CSceneManager SceneManager;
 
@@ -61,6 +63,7 @@ void Init() {
 	PlayerGirlJump0.Load("res\\女プレイヤージャンプ1.png");
 	Item1.Load("res\\アイテム現代.png");
 	ZakoEnemy.Load("res\\雑魚１-１.png");
+	ZakoAtack.Load("res\\雑魚１-２.png");
 	//文字画像の読み込み
 	CText::mFont.Load("res\\Cfont.png");
 	//シーンマネージャの初期化

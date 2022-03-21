@@ -21,10 +21,11 @@ extern CTexture PlayerBoyMove2;
 
 extern CTexture PlayerGirlJump0;
 int CPlayer::PLife = PLAYER_LIFE;
-int CPlayer::PWeapon = 1;
+int CPlayer::PWeapon = 0;
 int CPlayer::Gender = 1;	//äÓñ{ÇÃê´ï ÇÕíj
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
+int Counter = 0;
 int MoveCount = 0;
 int JumpCount = INIT_JUMPCOUNT;
 int Jumph = 0;
@@ -48,7 +49,6 @@ void CPlayer::Update() {
 	Playerx = x;
 	Playery = z;
 
-
 	y = z + Jumph;
 
 	if (PLife < 0) {
@@ -56,6 +56,11 @@ void CPlayer::Update() {
 	}
 	if (PLife > 4) {
 		PLife = 4;
+	}
+
+	MoveCount += 1;
+	if (MoveCount > 119) {
+		MoveCount = 0;
 	}
 
 	JumpMotion = (INIT_JUMPCOUNT - JumpCount) / 4;
@@ -172,9 +177,11 @@ void CPlayer::Render() {
 						260 - 85 + 500 * (JumpMotion % 5), 260 + 85 + 500 * (JumpMotion % 5),
 						260 + 200 + 500 * (JumpMotion / 5), 260 - 200 + 500 * (JumpMotion / 5)) :	//260 260 100 210 500 500
 						PWeapon == 1 ? CRectangle::Render(PlayerBoyJump1,
-						270 - 120 + 500 * (JumpMotion % 5), 270 + 120 + 500 * (JumpMotion % 5),
-						270 + 200 + 500 * (JumpMotion / 5), 270 - 200 + 500 * (JumpMotion / 5)) :	//280 270 130 200 500 500
-						PWeapon == 2 ? mEnabled = false :
+							270 - 120 + 500 * (JumpMotion % 5), 270 + 120 + 500 * (JumpMotion % 5),
+							270 + 200 + 500 * (JumpMotion / 5), 270 - 200 + 500 * (JumpMotion / 5)) :	//280 270 130 200 500 500
+						PWeapon == 2 ? CRectangle::Render(PlayerBoyJump2,
+							280 - 140 + 500 * (JumpMotion % 5), 280 + 140 + 500 * (JumpMotion % 5),
+							280 + 240 + 500 * (JumpMotion / 5), 280 - 240 + 500 * (JumpMotion / 5)) :	//280 280 140 240
 						mEnabled = false);
 				}
 				else if (CKey::Push('J')) {
@@ -188,24 +195,28 @@ void CPlayer::Render() {
 				else if (MoveFlg == true) {
 					//ê≥à⁄ìÆ
 					(PWeapon == 0 ? CRectangle::Render(PlayerBoyMove0,
-						290 - 95 + 500 * (JumpMotion % 5), 290 + 95 + 500 * (JumpMotion % 5),
-						250 + 200 + 500 * (JumpMotion / 5), 250 - 200 + 500 * (JumpMotion / 5)) :
+						290 - 95 + 500 * ((MoveCount % 60) / 12), 290 + 105 + 500 * ((MoveCount % 60) / 12),
+						250 + 200 + 500 * (MoveCount / 60), 250 - 200 + 500 * (MoveCount / 60)) :
 						PWeapon == 1 ? CRectangle::Render(PlayerBoyMove1,
-							270 - 150 + 500 * (JumpMotion % 5), 270 + 150 + 500 * (JumpMotion % 5),
-							270 + 210 + 500 * (JumpMotion / 5), 270 - 210 + 500 * (JumpMotion / 5)) :	//280 270 140 210
-						PWeapon == 2 ? mEnabled = false :
+							270 - 150 + 500 * ((MoveCount % 60) / 12), 270 + 150 + 500 * ((MoveCount % 60) / 12),
+							270 + 210 + 500 * (MoveCount / 60), 270 - 210 + 500 * (MoveCount / 60)) :	//280 270 140 210
+						PWeapon == 2 ? CRectangle::Render(PlayerBoyMove2,
+							110 - 40 + 500 * ((MoveCount % 60) / 15), 110 + 40 + 500 * ((MoveCount % 60) / 15),
+							105 + 70 + 500 * (MoveCount / 60), 105 - 70 + 500 * (MoveCount / 60)) :	//110 105 40 65 8
 						mEnabled = false);
 
 				}
 				else {
 					//ê≥ë“ã@
 					(PWeapon == 0 ? CRectangle::Render(PlayerBoyStay0,
-						265 - 85 + 500 * (JumpMotion % 5), 265 + 105 + 500 * (JumpMotion % 5),
-						310 + 200 + 500 * (JumpMotion / 5), 310 -200 + 500 * (JumpMotion / 5)) :
-						PWeapon == 1 ? CRectangle::Render(PlayerBoyJump1,
-							270 - 150 + 500 * (JumpMotion % 5), 270 + 150 + 500 * (JumpMotion % 5),
-							270 + 210 + 500 * (JumpMotion / 5), 270 - 210 + 500 * (JumpMotion / 5)) :
-						PWeapon == 2 ? mEnabled = false :
+						265 - 85 + 500 * ((MoveCount % 60) / 12), 265 + 105 + 500 * ((MoveCount % 60) / 12),
+						310 + 200 + 500 * (MoveCount / 60), 310 -200 + 500 * (MoveCount / 60)) :
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyStay1,
+							270 - 150 + 500 * ((MoveCount % 60) / 12), 270 + 150 + 500 * ((MoveCount % 60) / 12),
+							270 + 210 + 500 * (MoveCount / 60), 270 - 210 + 500 * (MoveCount / 60)) :
+						PWeapon == 2 ? CRectangle::Render(PlayerBoyStay2,
+							150 - 60 + 500 * ((MoveCount % 60) / 20), 150 + 60 + 500 * ((MoveCount % 60) / 20),
+							140 + 90 + 500 * (MoveCount / 60), 140 - 90 + 500 * (MoveCount / 60)) ://150 140 60 90 6
 						mEnabled = false);
 				}
 			}
@@ -213,10 +224,14 @@ void CPlayer::Render() {
 				if (JumpFlg == true) {
 					//ãtÉWÉÉÉìÉv
 					(PWeapon == 0 ? CRectangle::Render(PlayerBoyJump0,
-						 260 + 85 + 500 * (JumpMotion % 5),260 - 85 + 500 * (JumpMotion % 5),
+						260 + 85 + 500 * (JumpMotion % 5), 260 - 85 + 500 * (JumpMotion % 5),
 						260 + 200 + 500 * (JumpMotion / 5), 260 - 200 + 500 * (JumpMotion / 5)) :	//260 260 100 210 400 500
-						PWeapon == 1 ? mEnabled = false :
-						PWeapon == 2 ? mEnabled = false :
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyJump1,
+							270 + 120 + 500 * (JumpMotion % 5), 270 - 120 + 500 * (JumpMotion % 5),
+							270 + 200 + 500 * (JumpMotion / 5), 270 - 200 + 500 * (JumpMotion / 5)) :	//280 270 130 200 500 500
+						PWeapon == 2 ? CRectangle::Render(PlayerBoyJump2,
+							280 + 140 + 500 * (JumpMotion % 5), 280 - 140 + 500 * (JumpMotion % 5),
+							280 + 240 + 500 * (JumpMotion / 5), 280 - 240 + 500 * (JumpMotion / 5)) :	//280 280 140 240
 						mEnabled = false);
 				}
 				else if (CKey::Push('J')) {
@@ -230,20 +245,28 @@ void CPlayer::Render() {
 				else if (MoveFlg == true) {
 					//ãtà⁄ìÆ
 					(PWeapon == 0 ? CRectangle::Render(PlayerBoyMove0,
-						 290 + 95 + 500 * (JumpMotion % 5),290 - 95 + 500 * (JumpMotion % 5),
-						250 + 200 + 500 * (JumpMotion / 5), 250 - 200 + 500 * (JumpMotion / 5)) :
-						PWeapon == 1 ? mEnabled = false :
-						PWeapon == 2 ? mEnabled = false :
+						 290 + 105 + 500 * ((MoveCount % 60) / 12),290 - 95 + 500 * ((MoveCount % 60) / 12),
+						250 + 200 + 500 * (MoveCount / 60), 250 - 200 + 500 * (MoveCount / 60)) :
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyMove1,
+							270 + 150 + 500 * ((MoveCount % 60) / 12), 270 - 150 + 500 * ((MoveCount % 60) / 12),
+							270 + 210 + 500 * (MoveCount / 60), 270 - 210 + 500 * (MoveCount / 60)) :	//280 270 140 210
+						PWeapon == 2 ? CRectangle::Render(PlayerBoyMove2,
+							110 + 40 + 500 * ((MoveCount % 60) / 12), 110 - 40 + 500 * ((MoveCount % 60) / 12),
+							105 + 70 + 500 * (MoveCount / 60), 105 - 70 + 500 * (MoveCount / 60)) :	//110 105 40 65 8
 						mEnabled = false);
 
 				}
 				else {
 					//ãtë“ã@
 					(PWeapon == 0 ? CRectangle::Render(PlayerBoyStay0,
-						 265 + 105 + 500 * (JumpMotion % 5),265 - 85 + 500 * (JumpMotion % 5),
-						310 + 200 + 500 * (JumpMotion / 5), 310 - 200 + 500 * (JumpMotion / 5)) :
-						PWeapon == 1 ? mEnabled = false :
-						PWeapon == 2 ? mEnabled = false :
+						265 + 105 + 500 * ((MoveCount % 60) / 12), 265 - 85 + 500 * ((MoveCount % 60) / 12),
+						310 + 200 + 500 * (MoveCount / 60), 310 - 200 + 500 * (MoveCount / 60)) :
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyStay1,
+							270 + 150 + 500 * ((MoveCount % 60) / 12), 270 - 150 + 500 * ((MoveCount % 60) / 12),
+							270 + 210 + 500 * (MoveCount / 60), 270 - 210 + 500 * (MoveCount / 60)) :
+						PWeapon == 2 ? CRectangle::Render(PlayerBoyStay2,
+							150 + 60 + 500 * ((MoveCount % 60) / 12), 150 - 60 + 500 * ((MoveCount % 60) / 12),
+							140 + 90 + 500 * (MoveCount / 60), 140 - 90 + 500 * (MoveCount / 60)) ://150 140 60 90 6
 						mEnabled = false);
 				}
 			}
