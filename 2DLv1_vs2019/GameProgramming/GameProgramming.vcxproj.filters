@@ -84,6 +84,9 @@
     <ClCompile Include="src\CBoss.cpp">
       <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
+    <ClCompile Include="src\CTitleBack.cpp">
+      <Filter>ソース ファイル\Title・Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBullet.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="src\CBoss.h">
       <Filter>ソース ファイル\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CTitleBack.h">
+      <Filter>ソース ファイル\Title・Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

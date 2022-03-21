@@ -27,6 +27,7 @@
     <ClCompile Include="src\CTaskManager.cpp" />
     <ClCompile Include="src\CText.cpp" />
     <ClCompile Include="src\CTexture.cpp" />
+    <ClCompile Include="src\CTitleBack.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Update.cpp" />
   </ItemGroup>
@@ -49,6 +50,7 @@
     <ClInclude Include="src\CTaskManager.h" />
     <ClInclude Include="src\CText.h" />
     <ClInclude Include="src\CTexture.h" />
+    <ClInclude Include="src\CTitleBack.h" />
     <ClInclude Include="src\Update.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -3,6 +3,8 @@
 
 #include "CScene.h"
 #include "CText.h"
+#include "CTexture.h"
+#include "CRectangle.h"
 
 class CSceneTitle : public CScene {
 public:

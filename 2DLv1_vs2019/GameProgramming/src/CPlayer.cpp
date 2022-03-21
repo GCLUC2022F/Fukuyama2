@@ -5,9 +5,23 @@
 //extern：他のソースファイルの外部変数にアクセスする宣言
 extern CTexture Texture;
 extern CTexture Shadow;
+
+extern CTexture PlayerBoyStay0;
+extern CTexture PlayerBoyStay1;
+extern CTexture PlayerBoyStay2;
+extern CTexture PlayerBoyAttack0;
+extern CTexture PlayerBoyAttack1;
+extern CTexture PlayerBoyAttack2;
+extern CTexture PlayerBoyJump0;
+extern CTexture PlayerBoyJump1;
+extern CTexture PlayerBoyJump2;
+extern CTexture PlayerBoyMove0;
+extern CTexture PlayerBoyMove1;
+extern CTexture PlayerBoyMove2;
+
 extern CTexture PlayerGirlJump0;
 int CPlayer::PLife = PLAYER_LIFE;
-int CPlayer::PWeapon = 0;
+int CPlayer::PWeapon = 1;
 int CPlayer::Gender = 1;	//基本の性別は男
 int CPlayer::Playerx = 0;
 int CPlayer::Playery = 0;
@@ -154,10 +168,12 @@ void CPlayer::Render() {
 			if (mFx >= 0) {
 				if (JumpFlg == true) {
 					//正ジャンプ
-					(PWeapon == 0 ? CRectangle::Render(PlayerGirlJump0,
-						228 - 48 + 400 * (JumpMotion % 5), 228 + 48 + 400 * (JumpMotion % 5),
-						209 + 111 + 300 * (JumpMotion / 5), 209 - 111 + 300 * (JumpMotion / 5)) :	//260 260 100 210 400 500
-						PWeapon == 1 ? mEnabled = false :
+					(PWeapon == 0 ? CRectangle::Render(PlayerBoyJump0,
+						260 - 85 + 500 * (JumpMotion % 5), 260 + 85 + 500 * (JumpMotion % 5),
+						260 + 200 + 500 * (JumpMotion / 5), 260 - 200 + 500 * (JumpMotion / 5)) :	//260 260 100 210 500 500
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyJump1,
+						270 - 120 + 500 * (JumpMotion % 5), 270 + 120 + 500 * (JumpMotion % 5),
+						270 + 200 + 500 * (JumpMotion / 5), 270 - 200 + 500 * (JumpMotion / 5)) :	//280 270 130 200 500 500
 						PWeapon == 2 ? mEnabled = false :
 						mEnabled = false);
 				}
@@ -171,16 +187,24 @@ void CPlayer::Render() {
 				}
 				else if (MoveFlg == true) {
 					//正移動
-					(PWeapon == 0 ? mEnabled = false :
-						PWeapon == 1 ? mEnabled = false :
+					(PWeapon == 0 ? CRectangle::Render(PlayerBoyMove0,
+						290 - 95 + 500 * (JumpMotion % 5), 290 + 95 + 500 * (JumpMotion % 5),
+						250 + 200 + 500 * (JumpMotion / 5), 250 - 200 + 500 * (JumpMotion / 5)) :
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyMove1,
+							270 - 150 + 500 * (JumpMotion % 5), 270 + 150 + 500 * (JumpMotion % 5),
+							270 + 210 + 500 * (JumpMotion / 5), 270 - 210 + 500 * (JumpMotion / 5)) :	//280 270 140 210
 						PWeapon == 2 ? mEnabled = false :
 						mEnabled = false);
 
 				}
 				else {
 					//正待機
-					(PWeapon == 0 ? CRectangle::Render(PlayerGirlJump0, 228 - 48, 228 + 48, 209 + 111, 209 - 111) :
-						PWeapon == 1 ? mEnabled = false :
+					(PWeapon == 0 ? CRectangle::Render(PlayerBoyStay0,
+						265 - 85 + 500 * (JumpMotion % 5), 265 + 105 + 500 * (JumpMotion % 5),
+						310 + 200 + 500 * (JumpMotion / 5), 310 -200 + 500 * (JumpMotion / 5)) :
+						PWeapon == 1 ? CRectangle::Render(PlayerBoyJump1,
+							270 - 150 + 500 * (JumpMotion % 5), 270 + 150 + 500 * (JumpMotion % 5),
+							270 + 210 + 500 * (JumpMotion / 5), 270 - 210 + 500 * (JumpMotion / 5)) :
 						PWeapon == 2 ? mEnabled = false :
 						mEnabled = false);
 				}
@@ -188,12 +212,39 @@ void CPlayer::Render() {
 			else {
 				if (JumpFlg == true) {
 					//逆ジャンプ
+					(PWeapon == 0 ? CRectangle::Render(PlayerBoyJump0,
+						 260 + 85 + 500 * (JumpMotion % 5),260 - 85 + 500 * (JumpMotion % 5),
+						260 + 200 + 500 * (JumpMotion / 5), 260 - 200 + 500 * (JumpMotion / 5)) :	//260 260 100 210 400 500
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
+				}
+				else if (CKey::Push('J')) {
+					//逆攻撃
+					(PWeapon == 0 ? mEnabled = false :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
+
 				}
 				else if (MoveFlg == true) {
 					//逆移動
+					(PWeapon == 0 ? CRectangle::Render(PlayerBoyMove0,
+						 290 + 95 + 500 * (JumpMotion % 5),290 - 95 + 500 * (JumpMotion % 5),
+						250 + 200 + 500 * (JumpMotion / 5), 250 - 200 + 500 * (JumpMotion / 5)) :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
+
 				}
 				else {
 					//逆待機
+					(PWeapon == 0 ? CRectangle::Render(PlayerBoyStay0,
+						 265 + 105 + 500 * (JumpMotion % 5),265 - 85 + 500 * (JumpMotion % 5),
+						310 + 200 + 500 * (JumpMotion / 5), 310 - 200 + 500 * (JumpMotion / 5)) :
+						PWeapon == 1 ? mEnabled = false :
+						PWeapon == 2 ? mEnabled = false :
+						mEnabled = false);
 				}
 			}
 		}
@@ -205,7 +256,6 @@ void CPlayer::Render() {
 				else {
 					CRectangle::Render(PlayerGirlJump0, 228 - 48, 228 + 48, 209 + 111, 209 - 111);
 				}
-
 			}
 			else {
 				if (JumpFlg == true) {

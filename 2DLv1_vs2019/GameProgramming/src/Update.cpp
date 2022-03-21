@@ -10,6 +10,7 @@
 // テクスチャクラスのインクルード
 #include "CTexture.h"
 CTexture Texture; //マップの画像
+CTexture TitleScene;
 CTexture Stageback1;
 CTexture Stagefloor1;
 CTexture Shadow;
@@ -38,23 +39,24 @@ CSceneManager SceneManager;
 //最初に一度だけ呼ばれる関数
 void Init() {
 	Texture.Load("res\\Image.tga");
+	TitleScene.Load("res\\タイトルロゴ背景.png");
 	Stagefloor1.Load("res\\学校床.png");
 	Stageback1.Load("res\\学校背景.png");
 
 	Shadow.Load("res\\影.png");
 
 	PlayerBoyStay0.Load("res\\男プレイヤー.png");
-	//PlayerBoyStay1.Load("res\\.png");
+	PlayerBoyStay1.Load("res\\男プレイヤー拳銃.png");
 	PlayerBoyStay2.Load("res\\男プレイヤーアサルト.png");
 	PlayerBoyAttack0.Load("res\\男プレイヤーパンチ.png");
-	//PlayerBoyAttack1.Load("res\\.png");
+	PlayerBoyAttack1.Load("res\\男プレイヤー拳銃発砲.png");
 	PlayerBoyAttack2.Load("res\\男プレイヤーアサルト.png");
-	//PlayerBoyJump0.Load("res\\.png");
-	//PlayerBoyJump1.Load("res\\.png");
-	//PlayerBoyJump2.Load("res\\.png");
-	//PlayerBoyMove0.Load("res\\.png");
-	//PlayerBoyMove1.Load("res\\.png");
-	//PlayerBoyMove2.Load("res\\.png");
+	PlayerBoyJump0.Load("res\\男プレイヤージャンプ.png");
+	PlayerBoyJump1.Load("res\\男プレイヤー拳銃ジャンプ.png");
+	PlayerBoyJump2.Load("res\\男プレイヤーアサルトジャンプ.png");
+	PlayerBoyMove0.Load("res\\男プレイヤー歩き.png");
+	PlayerBoyMove1.Load("res\\男プレイヤー拳銃歩き.png");
+	PlayerBoyMove2.Load("res\\男プレイヤーアサルト歩き.png");
 
 	PlayerGirlJump0.Load("res\\女プレイヤージャンプ1.png");
 	Item1.Load("res\\アイテム現代.png");

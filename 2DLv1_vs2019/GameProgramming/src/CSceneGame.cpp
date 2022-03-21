@@ -4,8 +4,6 @@
 #include "CBack.h"
 #include "CField.h"
 #include <stdio.h>
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
 
 //c‚èŠÔi30•bj
 int Time = 30 * 60;
